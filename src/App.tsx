@@ -134,10 +134,16 @@ export function App() {
 
           {currentMenu === 'website' && <WebsitePage />}
 
-          {currentMenu === 'search-marketing' && <SearchMarketingPage />}
+          {currentMenu === 'search-marketing' && (
+            <SearchMarketingPage onNavigate={(menu) => setCurrentMenu(menu)} />
+          )}
 
           {currentMenu === 'paid-media' && (
-            <PaidMediaPage onNavigate={(menu) => setCurrentMenu(menu)} />
+            <PaidMediaPage
+              onNavigate={(menu) => setCurrentMenu(menu)}
+              tasks={tasks}
+              onUpdateStatus={handleUpdateTaskStatus}
+            />
           )}
 
           {currentMenu === 'social-media' && <SocialMediaPage />}
