@@ -32,13 +32,17 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
       {/* Header banner */}
-      <div className="bg-white border border-[#efefef] rounded-[8px] p-8 text-center shadow-[0px_1px_2px_rgba(0,0,0,0.03)] relative overflow-hidden">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-[8px] bg-[#f4f4f5] text-[#18181b] mb-4">
+      <div className="bg-white border border-[#efefef] rounded-[8px] p-8 text-center shadow-[0px_1px_2px_rgba(0,0,0,0.03)] relative overflow-hidden flex flex-col items-center">
+        {/* Logo / Icon centered on top */}
+        <div className="w-14 h-14 rounded-[8px] bg-[#f4f4f5] text-[#18181b] flex items-center justify-center mb-3.5 shadow-sm">
           <Icon className="w-7 h-7" />
         </div>
 
-        <div className="inline-block px-2.5 py-0.5 rounded-[4px] text-[10px] font-semibold bg-[#f4f4f5] text-[#52525b] border border-[#e4e4e7] mb-2.5 uppercase tracking-wide">
-          {category} · Placeholder Page
+        {/* Category badge */}
+        <div className="mb-3">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-[10px] font-semibold bg-[#f4f4f5] text-[#52525b] border border-[#e4e4e7] uppercase tracking-wide">
+            {category} · Placeholder Page
+          </span>
         </div>
 
         <h2 className="text-xl font-bold text-[#010101] mb-2 tracking-tight">{title}</h2>
