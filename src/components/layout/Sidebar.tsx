@@ -208,17 +208,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
           isOpenMobile ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Brand Header (Rackwise Clean Style) */}
-        <div className="p-4 border-b border-[#efefef] bg-white flex items-center justify-between">
+        {/* Brand Header (Rackwise Clean Style - Exactly h-16 to align perfectly with top Header) */}
+        <div className="h-16 px-4 border-b border-[#efefef] bg-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-[6px] bg-[#171717] flex items-center justify-center text-white font-bold text-sm tracking-tight shadow-sm">
               AI
             </div>
             <div>
-              <div className="text-[13px] font-semibold text-[#010101] tracking-tight">
+              <div className="text-[13px] font-semibold text-[#010101] tracking-tight leading-snug">
                 AIZone Marketing
               </div>
-              <div className="text-[11px] text-[#8f8f8f] font-mono">
+              <div className="text-[11px] text-[#8f8f8f] font-mono leading-none">
                 aizonemarketing.io
               </div>
             </div>

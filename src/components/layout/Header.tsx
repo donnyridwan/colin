@@ -86,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-white border-b border-[#efefef] px-4 sm:px-6 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-30 h-16 bg-white border-b border-[#efefef] px-4 sm:px-6 flex items-center justify-between shrink-0">
       {/* Left: Mobile hamburger & current page title */}
       <div className="flex items-center gap-3 sm:gap-4">
         <button
@@ -98,10 +98,10 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
 
         <div>
-          <h1 className="text-[15px] sm:text-[16px] font-semibold text-[#010101] tracking-tight">
+          <h1 className="text-[15px] sm:text-[16px] font-semibold text-[#010101] tracking-tight leading-snug">
             {currentInfo.title}
           </h1>
-          <p className="hidden sm:block text-[11px] text-[#8f8f8f]">
+          <p className="hidden sm:block text-[11px] text-[#8f8f8f] leading-none">
             {currentInfo.subtitle}
           </p>
         </div>
