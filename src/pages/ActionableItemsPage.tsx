@@ -25,69 +25,69 @@ export const ActionableItemsPage: React.FC<ActionableItemsPageProps> = ({
   const assignedTasks = tasks.filter((t) => t.status === 'Assigned');
 
   return (
-    <div className="space-y-5 max-w-7xl mx-auto pb-12">
+    <div className="space-y-6 max-w-7xl mx-auto pb-12">
       {/* Header Info Banner */}
-      <div className="p-4 rounded-[8px] bg-white border border-[#efefef] shadow-[0px_1px_2px_rgba(0,0,0,0.02)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="p-5 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h2 className="text-sm font-bold text-[#010101] tracking-tight">
+          <div className="flex items-center gap-2.5">
+            <h2 className="text-base font-bold text-[#0f172a] tracking-tight">
               Actionable Work Items
             </h2>
-            <span className="text-[10px] px-2 py-0.5 rounded-[4px] bg-[#fefce8] text-[#a16207] border border-[#fef08a] font-medium">
+            <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]">
               {awaitingApproval.length + generatedTasks.length} Require Immediate Action
             </span>
           </div>
-          <p className="text-xs text-[#71717a] mt-0.5 max-w-xl">
+          <p className="text-xs text-[#64748b] mt-1 max-w-xl leading-relaxed">
             Tasks filed automatically by the AI audit and client discussions that need approval, assignment, or execution.
           </p>
         </div>
 
         <button
           onClick={onNavigateToDb}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors shadow-[0px_1px_2px_rgba(0,0,0,0.02)]"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors shadow-xs"
         >
           <span>Open Full Task DB</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3.5 h-3.5 text-[#94a3b8]" />
         </button>
       </div>
 
       {/* 1. AWAITING APPROVAL QUEUE */}
       {awaitingApproval.length > 0 && (
-        <div className="space-y-2.5">
-          <h3 className="text-xs font-bold text-[#a16207] uppercase tracking-wider flex items-center gap-1.5">
+        <div className="space-y-3">
+          <h3 className="text-xs font-bold text-[#d97706] uppercase tracking-wider flex items-center gap-2">
             <Clock className="w-3.5 h-3.5" />
             Awaiting Client / Manager Approval ({awaitingApproval.length})
           </h3>
-          <div className="grid gap-2.5">
+          <div className="grid gap-3">
             {awaitingApproval.map((task) => (
               <div
                 key={task.id}
-                className="p-4 rounded-[8px] bg-[#fefce8]/60 border border-[#fef08a] flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-[0px_1px_2px_rgba(0,0,0,0.02)]"
+                className="p-5 rounded-[12px] bg-[#fffbeb]/50 border border-[#fef3c7] flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-[0px_1px_3px_rgba(0,0,0,0.02)]"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-mono text-[#a16207] font-bold">{task.id}</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-[4px] bg-white text-[#a16207] border border-[#fef08a] font-medium">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-xs font-mono text-[#d97706] font-bold">{task.id}</span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white text-[#d97706] border border-[#fef3c7]">
                       {task.lane} LANE
                     </span>
-                    <span className="text-[10px] text-[#71717a] font-mono">{task.date}</span>
+                    <span className="text-xs text-[#64748b] font-mono">{task.date}</span>
                   </div>
-                  <div className="text-xs font-semibold text-[#18181b]">{task.task}</div>
-                  <div className="text-[11px] text-[#71717a] mt-0.5">
-                    Source: <span className="text-[#3f3f46] font-medium">{task.source || 'Client Comms'}</span>
+                  <div className="text-sm font-bold text-[#0f172a]">{task.task}</div>
+                  <div className="text-xs text-[#64748b] mt-1">
+                    Source: <span className="text-[#0f172a] font-medium">{task.source || 'Client Comms'}</span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2 self-end md:self-center">
                   <button
                     onClick={() => onUpdateStatus(task.id, 'Assigned')}
-                    className="px-3 py-1.5 rounded-[6px] bg-[#16a34a] hover:bg-[#15803d] text-white font-medium text-xs transition-colors flex items-center gap-1.5 shadow-sm"
+                    className="px-3.5 py-2 rounded-[8px] bg-[#16a34a] hover:bg-[#15803d] text-white font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-xs"
                   >
                     <CheckCircle className="w-3.5 h-3.5" /> Approve & Assign
                   </button>
                   <button
                     onClick={() => onUpdateStatus(task.id, 'Completed')}
-                    className="px-3 py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors"
+                    className="px-3.5 py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors shadow-xs"
                   >
                     Mark Done
                   </button>
@@ -99,52 +99,52 @@ export const ActionableItemsPage: React.FC<ActionableItemsPageProps> = ({
       )}
 
       {/* 2. GENERATED BY AUDIT (Pending Triage / Assignment) */}
-      <div className="space-y-2.5">
-        <h3 className="text-xs font-bold text-[#010101] uppercase tracking-wider flex items-center gap-1.5">
+      <div className="space-y-3">
+        <h3 className="text-xs font-bold text-[#0f172a] uppercase tracking-wider flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-[#2563eb]" />
           Audit Generated Tasks Ready for Dispatch ({generatedTasks.length})
         </h3>
-        <div className="grid gap-2.5">
+        <div className="grid gap-3">
           {generatedTasks.map((task) => (
             <div
               key={task.id}
-              className="p-3.5 rounded-[8px] bg-white border border-[#efefef] hover:border-[#d4d4d8] flex flex-col md:flex-row md:items-center justify-between gap-3 transition-colors shadow-[0px_1px_2px_rgba(0,0,0,0.02)]"
+              className="p-4 sm:p-5 rounded-[12px] bg-white border border-[#e2e8f0] hover:border-[#cbd5e1] flex flex-col md:flex-row md:items-center justify-between gap-3.5 transition-all shadow-[0px_1px_3px_rgba(0,0,0,0.03)]"
             >
               <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-mono text-[#71717a] font-bold">{task.id}</span>
+                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                  <span className="text-xs font-mono text-[#64748b] font-bold">{task.id}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-[3px] font-medium ${
+                    className={`text-[10px] font-semibold px-2 py-0.2 rounded-full ${
                       task.lane === 'TECHNICAL'
                         ? 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]'
-                        : 'bg-[#faf6fd] text-[#7c3aed] border border-[#ede9fe]'
+                        : 'bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe]'
                     }`}
                   >
                     {task.lane}
                   </span>
                   {task.priority === 'High' && (
-                    <span className="text-[10px] font-semibold text-[#dc2626] flex items-center gap-0.5">
+                    <span className="text-[10px] font-semibold text-[#dc2626] flex items-center gap-1">
                       <AlertTriangle className="w-3 h-3" /> High Priority
                     </span>
                   )}
-                  <span className="text-[10px] text-[#a1a1aa] font-mono">{task.date}</span>
+                  <span className="text-xs text-[#94a3b8] font-mono">{task.date}</span>
                 </div>
-                <div className="text-xs font-semibold text-[#010101]">{task.task}</div>
-                <div className="text-[11px] text-[#71717a] mt-0.5">
-                  Source: <span className="text-[#3f3f46]">{task.source}</span>
+                <div className="text-sm font-bold text-[#0f172a]">{task.task}</div>
+                <div className="text-xs text-[#64748b] mt-1">
+                  Source: <span className="text-[#0f172a] font-medium">{task.source}</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 self-end md:self-center">
+              <div className="flex items-center gap-2 self-end md:self-center shrink-0">
                 <button
                   onClick={() => onUpdateStatus(task.id, 'Assigned')}
-                  className="px-3 py-1.5 rounded-[6px] bg-[#171717] hover:bg-[#262626] text-white font-medium text-xs transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="px-3.5 py-2 rounded-[8px] bg-[#0f172a] hover:bg-[#1e293b] text-white font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-xs"
                 >
                   <UserCheck className="w-3.5 h-3.5" /> Assign Team
                 </button>
                 <button
                   onClick={() => onUpdateStatus(task.id, 'Completed')}
-                  className="px-3 py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors"
+                  className="px-3.5 py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors shadow-xs"
                 >
                   Done
                 </button>
@@ -155,35 +155,35 @@ export const ActionableItemsPage: React.FC<ActionableItemsPageProps> = ({
       </div>
 
       {/* 3. CURRENTLY ASSIGNED & IN FLIGHT */}
-      <div className="space-y-2.5">
-        <h3 className="text-xs font-bold text-[#71717a] uppercase tracking-wider flex items-center gap-1.5">
+      <div className="space-y-3">
+        <h3 className="text-xs font-bold text-[#64748b] uppercase tracking-wider flex items-center gap-2">
           <UserCheck className="w-3.5 h-3.5 text-[#16a34a]" />
           Currently Assigned & In Progress ({assignedTasks.length})
         </h3>
-        <div className="grid gap-2.5">
+        <div className="grid gap-3">
           {assignedTasks.map((task) => (
             <div
               key={task.id}
-              className="p-3.5 rounded-[8px] bg-white border border-[#efefef] flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-[0px_1px_2px_rgba(0,0,0,0.02)]"
+              className="p-4 sm:p-5 rounded-[12px] bg-white border border-[#e2e8f0] flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-[0px_1px_3px_rgba(0,0,0,0.03)]"
             >
               <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-mono text-[#71717a] font-bold">{task.id}</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded-[3px] bg-[#f4f4f5] text-[#52525b] font-medium">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-xs font-mono text-[#64748b] font-bold">{task.id}</span>
+                  <span className="text-[10px] font-semibold px-2 py-0.2 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                     {task.lane}
                   </span>
-                  <span className="text-[11px] font-medium text-[#16a34a]">
+                  <span className="text-xs font-semibold text-[#16a34a]">
                     Assigned to: {task.assignedTo || 'Unspecified'}
                   </span>
                 </div>
-                <div className="text-xs font-medium text-[#27272a]">{task.task}</div>
+                <div className="text-sm font-semibold text-[#0f172a]">{task.task}</div>
               </div>
 
               <button
                 onClick={() => onUpdateStatus(task.id, 'Completed')}
-                className="px-3 py-1.5 rounded-[6px] bg-white hover:bg-[#f0fdf4] hover:border-[#bbf7d0] hover:text-[#16a34a] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-[8px] bg-white hover:bg-[#f0fdf4] hover:border-[#bbf7d0] hover:text-[#16a34a] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors flex items-center gap-1.5 shadow-xs"
               >
-                <CheckCircle className="w-3.5 h-3.5" /> Mark Completed
+                <CheckCircle className="w-3.5 h-3.5 text-[#16a34a]" /> Mark Completed
               </button>
             </div>
           ))}

@@ -5,117 +5,114 @@ import {
   AlertTriangle,
   Info,
   AlertOctagon,
-  Calendar,
   Activity,
-  Layers,
-  Sparkles,
 } from 'lucide-react';
 import { NOTIFICATIONS } from '../data/mockData';
 
 export const NotificationsPage: React.FC = () => {
   return (
-    <div className="space-y-5 max-w-4xl mx-auto pb-12">
+    <div className="space-y-6 max-w-4xl mx-auto pb-12">
       {/* 1. Header card */}
-      <div className="flex items-center justify-between p-4 rounded-[8px] bg-white border border-[#efefef] shadow-[0px_1px_2px_rgba(0,0,0,0.02)]">
+      <div className="flex items-center justify-between p-5 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div>
-          <h2 className="text-xs font-bold text-[#010101] uppercase tracking-wider flex items-center gap-2">
+          <h2 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider flex items-center gap-2">
             <Bell className="w-4 h-4 text-[#2563eb]" />
             Audit & System Notifications
           </h2>
-          <p className="text-[11px] text-[#71717a] mt-0.5">
+          <p className="text-xs text-[#64748b] mt-1 leading-relaxed">
             Automated event logs generated from weekly scheduled crawls, PageSpeed audits, and task approvals.
           </p>
         </div>
-        <button className="text-xs text-[#2563eb] hover:underline font-medium">
+        <button className="text-xs text-[#2563eb] hover:underline font-semibold">
           Mark all as read
         </button>
       </div>
 
-      {/* 2. CRAWL STATION AUDIT & CHANGE LOG (Integrated per Proposal Point 7 from PDF Page 3) */}
-      <div className="bg-white border border-[#efefef] rounded-[8px] p-5 shadow-[0px_1px_2px_rgba(0,0,0,0.03)]">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-3.5 border-b border-[#efefef]">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-[6px] bg-[#f0fdf4] text-[#16a34a] flex items-center justify-center">
+      {/* 2. CRAWL STATION AUDIT & CHANGE LOG */}
+      <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[#e2e8f0]">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-[8px] bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] flex items-center justify-center shrink-0">
               <Activity className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-xs font-bold text-[#010101] uppercase tracking-wide">
+                <h3 className="text-xs font-bold text-[#0f172a] uppercase tracking-wide">
                   Crawl Station — Weekly Audit Log
                 </h3>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-[4px] bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
+                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
                   Done · 478 Pages
                 </span>
               </div>
-              <p className="text-[11px] text-[#71717a] mt-0.5 font-mono">
+              <p className="text-xs text-[#64748b] mt-0.5 font-mono">
                 Runs every Sun ~05:30 UTC when crawl station is online. (PDF Page 3)
               </p>
             </div>
           </div>
 
-          <div className="text-[11px] font-mono text-[#52525b] bg-[#fafafa] px-2.5 py-1 rounded-[4px] border border-[#efefef] self-start sm:self-center">
+          <div className="text-xs font-mono text-[#475569] bg-[#f8fafc] px-3 py-1.5 rounded-[8px] border border-[#e2e8f0] self-start sm:self-center">
             Scan Period: 2026-09-27 → 2026-09-28
           </div>
         </div>
 
         {/* Change metrics grid from PDF Page 3 */}
-        <div className="grid grid-cols-2 sm:grid-cols-6 gap-2.5 text-center">
-          <div className="p-2.5 rounded-[6px] bg-[#fafafa] border border-[#efefef]">
-            <span className="text-[10px] text-[#71717a] font-medium block">New Broken</span>
-            <span className="text-sm font-bold text-[#010101] font-mono mt-0.5 block">0</span>
+        <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 text-center">
+          <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
+            <span className="text-[10px] text-[#64748b] font-semibold block uppercase">New Broken</span>
+            <span className="text-sm font-bold text-[#0f172a] font-mono mt-0.5 block">0</span>
           </div>
 
-          <div className="p-2.5 rounded-[6px] bg-[#fafafa] border border-[#efefef]">
-            <span className="text-[10px] text-[#71717a] font-medium block">Fixed</span>
+          <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
+            <span className="text-[10px] text-[#64748b] font-semibold block uppercase">Fixed</span>
             <span className="text-sm font-bold text-[#16a34a] font-mono mt-0.5 block">0</span>
           </div>
 
-          <div className="p-2.5 rounded-[6px] bg-[#fafafa] border border-[#efefef]">
-            <span className="text-[10px] text-[#71717a] font-medium block">New Pages</span>
-            <span className="text-sm font-bold text-[#010101] font-mono mt-0.5 block">0</span>
+          <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
+            <span className="text-[10px] text-[#64748b] font-semibold block uppercase">New Pages</span>
+            <span className="text-sm font-bold text-[#0f172a] font-mono mt-0.5 block">0</span>
           </div>
 
-          <div className="p-2.5 rounded-[6px] bg-[#fafafa] border border-[#efefef]">
-            <span className="text-[10px] text-[#71717a] font-medium block">Removed</span>
-            <span className="text-sm font-bold text-[#010101] font-mono mt-0.5 block">0</span>
+          <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
+            <span className="text-[10px] text-[#64748b] font-semibold block uppercase">Removed</span>
+            <span className="text-sm font-bold text-[#0f172a] font-mono mt-0.5 block">0</span>
           </div>
 
-          <div className="p-2.5 rounded-[6px] bg-[#fafafa] border border-[#efefef]">
-            <span className="text-[10px] text-[#71717a] font-medium block">Titles Changed</span>
-            <span className="text-sm font-bold text-[#010101] font-mono mt-0.5 block">0</span>
+          <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
+            <span className="text-[10px] text-[#64748b] font-semibold block uppercase">Titles Changed</span>
+            <span className="text-sm font-bold text-[#0f172a] font-mono mt-0.5 block">0</span>
           </div>
 
-          <div className="p-2.5 rounded-[6px] bg-[#fafafa] border border-[#efefef]">
-            <span className="text-[10px] text-[#71717a] font-medium block">Meta Lost</span>
-            <span className="text-sm font-bold text-[#010101] font-mono mt-0.5 block">0</span>
+          <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
+            <span className="text-[10px] text-[#64748b] font-semibold block uppercase">Meta Lost</span>
+            <span className="text-sm font-bold text-[#0f172a] font-mono mt-0.5 block">0</span>
           </div>
         </div>
       </div>
 
       {/* 3. System & Audit Notification Feed */}
-      <div className="space-y-2.5">
-        <h3 className="text-xs font-bold text-[#71717a] uppercase tracking-wider px-1">
+      <div className="space-y-3">
+        <h3 className="text-xs font-bold text-[#64748b] uppercase tracking-wider px-1">
           Recent Event Feed
         </h3>
 
         {NOTIFICATIONS.map((item) => (
           <div
             key={item.id}
-            className={`p-3.5 rounded-[8px] border flex items-start gap-3 transition-colors ${
+            className={`p-4 rounded-[12px] border flex items-start gap-3.5 transition-all ${
               item.read
-                ? 'bg-white border-[#efefef] text-[#71717a]'
-                : 'bg-white border-[#e4e4e7] shadow-[0px_1px_2px_rgba(0,0,0,0.03)] text-[#18181b]'
+                ? 'bg-white border-[#e2e8f0] text-[#64748b]'
+                : 'bg-white border-[#cbd5e1] shadow-[0px_1px_3px_rgba(0,0,0,0.04)] text-[#0f172a]'
             }`}
           >
             <div
-              className={`w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 mt-0.5 ${
+              className={`w-8 h-8 rounded-[8px] flex items-center justify-center shrink-0 mt-0.5 ${
                 item.type === 'warning'
-                  ? 'bg-[#fefce8] text-[#a16207]'
+                  ? 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]'
                   : item.type === 'alert'
-                  ? 'bg-[#fef2f2] text-[#dc2626]'
+                  ? 'bg-[#fff1f2] text-[#dc2626] border border-[#ffe4e6]'
                   : item.type === 'success'
-                  ? 'bg-[#f0fdf4] text-[#16a34a]'
-                  : 'bg-[#eff6ff] text-[#2563eb]'
+                  ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7]'
+                  : 'bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe]'
               }`}
             >
               {item.type === 'warning' && <AlertTriangle className="w-4 h-4" />}
@@ -126,12 +123,12 @@ export const NotificationsPage: React.FC = () => {
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-semibold text-[#010101]">{item.title}</span>
-                <span className="text-[10px] text-[#a1a1aa] font-mono shrink-0">
+                <span className="text-xs font-bold text-[#0f172a]">{item.title}</span>
+                <span className="text-xs text-[#94a3b8] font-mono shrink-0">
                   {item.timestamp}
                 </span>
               </div>
-              <p className="text-xs text-[#71717a] mt-0.5 leading-relaxed">{item.message}</p>
+              <p className="text-xs text-[#64748b] mt-1 leading-relaxed">{item.message}</p>
             </div>
           </div>
         ))}

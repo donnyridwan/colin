@@ -82,61 +82,61 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
   };
 
   return (
-    <div className="space-y-4 max-w-7xl mx-auto pb-12">
-      {/* Top Header & Summary from PDF Page 6 */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-[8px] bg-white border border-[#efefef] shadow-[0px_1px_2px_rgba(0,0,0,0.02)]">
+    <div className="space-y-5 max-w-7xl mx-auto pb-12">
+      {/* Top Header & Summary from PDF Page 6 (Trackly UI Kit Backlog Style) */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div>
-          <div className="flex items-center gap-2">
-            <h2 className="text-xs font-bold text-[#010101] uppercase tracking-wider">ALL TASKS</h2>
-            <span className="text-[11px] text-[#71717a] font-mono">
-              {filteredTasks.length} of {tasks.length}
+          <div className="flex items-center gap-2.5">
+            <h2 className="text-base font-bold text-[#0f172a] uppercase tracking-wider">ALL TASKS</h2>
+            <span className="text-xs text-[#64748b] font-mono">
+              {filteredTasks.length} of {tasks.length} total
             </span>
           </div>
-          <div className="flex flex-wrap items-center gap-1.5 text-xs font-semibold mt-1.5">
-            <span className="px-2 py-0.5 rounded-[4px] bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe] text-[10px]">
+          <div className="flex flex-wrap items-center gap-1.5 text-xs font-semibold mt-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe] text-[10px]">
               {assignedCount} assigned
             </span>
-            <span className="px-2 py-0.5 rounded-[4px] bg-[#faf6fd] text-[#7c3aed] border border-[#ede9fe] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe] text-[10px]">
               {generatedCount} generated
             </span>
-            <span className="px-2 py-0.5 rounded-[4px] bg-[#fefce8] text-[#a16207] border border-[#fef08a] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7] text-[10px]">
               {awaitingCount} awaiting approval
             </span>
-            <span className="px-2 py-0.5 rounded-[4px] bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] text-[10px]">
               {completedCount} completed
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-[#171717] hover:bg-[#262626] text-white font-medium text-xs transition-colors shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[8px] bg-[#0f172a] hover:bg-[#1e293b] text-white font-semibold text-xs transition-colors shadow-xs active:scale-95"
           >
             <Plus className="w-3.5 h-3.5" />
             New Task
           </button>
           <button
             onClick={handleExportCSV}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] hover:text-black text-xs font-medium border border-[#e3e3e3] transition-colors shadow-[0px_1px_2px_rgba(0,0,0,0.02)]"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors shadow-xs"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3.5 h-3.5 text-[#64748b]" />
             Export CSV
           </button>
         </div>
       </div>
 
-      {/* Filter Toolbar */}
-      <div className="p-3 bg-white border border-[#efefef] rounded-[8px] flex flex-col md:flex-row md:items-center justify-between gap-2.5 shadow-[0px_1px_2px_rgba(0,0,0,0.02)]">
-        <div className="flex flex-1 items-center gap-2.5">
+      {/* Filter Toolbar (Trackly style) */}
+      <div className="p-3.5 bg-white border border-[#e2e8f0] rounded-[12px] flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
+        <div className="flex flex-1 items-center gap-3">
           <div className="relative flex-1 max-w-md">
-            <Search className="w-3.5 h-3.5 text-[#a1a1aa] absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#94a3b8] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search tasks by title or keyword…"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 rounded-[6px] bg-white border border-[#e3e3e3] text-xs text-[#18181b] placeholder-[#a1a1aa] focus:outline-none focus:border-[#171717]"
+              className="w-full pl-8 pr-3 py-1.5 rounded-[8px] bg-white border border-[#e2e8f0] text-xs text-[#0f172a] placeholder-[#94a3b8] focus:outline-none focus:border-[#0f172a] font-medium"
             />
           </div>
 
@@ -148,6 +148,7 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
               { label: 'Lane: CONTENT', value: 'CONTENT' },
               { label: 'Lane: TECHNICAL', value: 'TECHNICAL' },
               { label: 'Lane: PAID', value: 'PAID' },
+              { label: 'Lane: GENERAL', value: 'GENERAL' },
             ]}
           />
 
@@ -165,29 +166,29 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
         </div>
       </div>
 
-      {/* Database Table */}
-      <div className="bg-white border border-[#efefef] rounded-[8px] overflow-hidden shadow-[0px_1px_2px_rgba(0,0,0,0.03)]">
+      {/* Database Table (Trackly Tasks Backlog Table DNA from node 257:3308) */}
+      <div className="bg-white border border-[#e2e8f0] rounded-[12px] overflow-hidden shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <table className="w-full text-left text-xs">
-          <thead className="bg-[#fafafa] text-[#71717a] border-b border-[#efefef] uppercase tracking-wider font-semibold">
+          <thead className="bg-[#f8fafc] text-[#64748b] border-b border-[#e2e8f0] uppercase tracking-wider font-semibold">
             <tr>
-              <th className="py-2.5 px-3 w-12 text-center">#</th>
-              <th className="py-2.5 px-4">TASK</th>
-              <th className="py-2.5 px-4">LANE</th>
-              <th className="py-2.5 px-4">STATUS</th>
-              <th className="py-2.5 px-4 text-right">DATE</th>
+              <th className="py-3 px-3 w-12 text-center">#</th>
+              <th className="py-3 px-4">TASK</th>
+              <th className="py-3 px-4">LANE</th>
+              <th className="py-3 px-4">STATUS</th>
+              <th className="py-3 px-4 text-right">DATE</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#efefef] text-[#27272a]">
+          <tbody className="divide-y divide-[#e2e8f0] text-[#0f172a]">
             {filteredTasks.map((t, idx) => (
-              <tr key={t.id} className="hover:bg-[#fafafa] transition-colors group">
-                <td className="py-3 px-3 text-center font-mono text-[#a1a1aa] text-[11px]">
+              <tr key={t.id} className="hover:bg-[#f8fafc] transition-colors group">
+                <td className="py-3.5 px-3 text-center font-mono text-[#94a3b8] text-xs">
                   {idx + 1}
                 </td>
-                <td className="py-3 px-4 font-medium text-[#18181b] max-w-lg">
+                <td className="py-3.5 px-4 font-medium text-[#0f172a] max-w-lg">
                   <div className="flex items-center gap-2">
                     <span
                       className={`cursor-pointer transition-all ${
-                        t.status === 'Completed' ? 'line-through text-[#a1a1aa]' : 'text-[#010101]'
+                        t.status === 'Completed' ? 'line-through text-[#94a3b8]' : 'text-[#0f172a] font-semibold'
                       }`}
                       onClick={() =>
                         onUpdateStatus(
@@ -199,19 +200,19 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                       {t.task}
                     </span>
                     {t.priority === 'High' && (
-                      <span className="text-[10px] font-semibold text-[#dc2626] shrink-0">
-                        [High]
+                      <span className="text-[10px] font-bold text-[#dc2626] shrink-0 bg-[#fff1f2] px-1.5 py-0.2 rounded-[4px] border border-[#ffe4e6]">
+                        High
                       </span>
                     )}
                   </div>
                 </td>
-                <td className="py-3 px-4 whitespace-nowrap">
+                <td className="py-3.5 px-4 whitespace-nowrap">
                   <span
-                    className={`text-[9px] font-bold px-2 py-0.5 rounded-[4px] ${
+                    className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${
                       t.lane === 'TECHNICAL'
                         ? 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]'
                         : t.lane === 'CONTENT'
-                        ? 'bg-[#faf6fd] text-[#7c3aed] border border-[#ede9fe]'
+                        ? 'bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe]'
                         : 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
                     }`}
                   >
@@ -224,33 +225,33 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                     value={t.status}
                     onChange={(val) => onUpdateStatus(t.id, val as TaskStatus)}
                     options={[
-                      { label: 'Generated', value: 'Generated', badge: 'New', badgeColor: 'bg-[#f4f4f5] text-[#52525b]' },
+                      { label: 'Generated', value: 'Generated', badge: 'New', badgeColor: 'bg-[#f1f5f9] text-[#475569]' },
                       { label: 'Assigned', value: 'Assigned', badge: 'In flight', badgeColor: 'bg-[#eff6ff] text-[#2563eb]' },
-                      { label: 'Awaiting approval', value: 'Awaiting approval', badge: 'Pending', badgeColor: 'bg-[#fefce8] text-[#a16207]' },
+                      { label: 'Awaiting approval', value: 'Awaiting approval', badge: 'Pending', badgeColor: 'bg-[#fffbeb] text-[#d97706]' },
                       { label: 'Completed', value: 'Completed', badge: 'Done', badgeColor: 'bg-[#f0fdf4] text-[#16a34a]' },
                     ]}
                   />
                 </td>
-                <td className="py-3 px-4 text-right font-mono text-[#71717a] whitespace-nowrap text-[11px]">
+                <td className="py-3.5 px-4 text-right font-mono text-[#64748b] whitespace-nowrap text-xs">
                   {t.date}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="p-2.5 bg-[#fafafa] border-t border-[#efefef] text-[#71717a] text-[11px]">
+        <div className="p-3 bg-[#f8fafc] border-t border-[#e2e8f0] text-[#64748b] text-xs">
           Completed work is dated by when it was confirmed; everything else by when it was raised.
         </div>
       </div>
 
       {/* Add Task Modal */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white border border-[#efefef] rounded-[8px] p-5 w-full max-w-md shadow-2xl">
-            <h3 className="text-sm font-semibold text-[#010101] mb-3.5">Create New Task</h3>
-            <form onSubmit={handleCreateTask} className="space-y-3.5">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white border border-[#e2e8f0] rounded-[16px] p-6 w-full max-w-md shadow-[0px_20px_50px_rgba(15,23,42,0.15)]">
+            <h3 className="text-base font-bold text-[#0f172a] mb-4">Create New Task</h3>
+            <form onSubmit={handleCreateTask} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-[#27272a] mb-1">
+                <label className="block text-xs font-semibold text-[#0f172a] mb-1.5">
                   Task Title
                 </label>
                 <input
@@ -259,13 +260,13 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                   placeholder="e.g. Set up Meta Pixel and track form submissions"
                   value={newTaskTitle}
                   onChange={(e) => setNewTaskTitle(e.target.value)}
-                  className="w-full px-3 py-1.5 rounded-[6px] bg-white border border-[#e3e3e3] text-xs text-[#18181b] placeholder-[#a1a1aa] focus:outline-none focus:border-[#171717]"
+                  className="w-full px-3 py-2 rounded-[8px] bg-white border border-[#e2e8f0] text-xs text-[#0f172a] placeholder-[#94a3b8] focus:outline-none focus:border-[#0f172a] font-medium"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#27272a] mb-1">
+                  <label className="block text-xs font-semibold text-[#0f172a] mb-1.5">
                     Lane
                   </label>
                   <Dropdown
@@ -282,7 +283,7 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#27272a] mb-1">
+                  <label className="block text-xs font-semibold text-[#0f172a] mb-1.5">
                     Initial Status
                   </label>
                   <Dropdown
@@ -299,17 +300,33 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#efefef]">
+              <div>
+                <label className="block text-xs font-semibold text-[#0f172a] mb-1.5">
+                  Priority
+                </label>
+                <Dropdown
+                  className="w-full"
+                  value={newTaskPriority}
+                  onChange={(val) => setNewTaskPriority(val as 'High' | 'Medium' | 'Low')}
+                  options={[
+                    { label: 'High', value: 'High' },
+                    { label: 'Medium', value: 'Medium' },
+                    { label: 'Low', value: 'Low' },
+                  ]}
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-[#e2e8f0]">
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-3.5 py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors"
+                  className="px-4 py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-3.5 py-1.5 rounded-[6px] bg-[#171717] hover:bg-[#262626] text-white text-xs font-medium transition-colors shadow-sm"
+                  className="px-4 py-2 rounded-[8px] bg-[#0f172a] hover:bg-[#1e293b] text-white text-xs font-semibold transition-colors shadow-xs"
                 >
                   Save Task
                 </button>

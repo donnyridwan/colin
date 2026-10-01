@@ -86,8 +86,8 @@ export function App() {
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#fbfbfb] text-[#111827] flex">
-      {/* Sidebar Navigation (Matching handwritten menus with Rackwise style) */}
+    <div className="min-h-screen bg-[#f8fafc] text-[#0f172a] flex">
+      {/* Sidebar Navigation (Matching handwritten menus with Trackly UI style) */}
       <Sidebar
         currentMenu={currentMenu}
         onSelectMenu={(menu) => setCurrentMenu(menu)}
@@ -109,11 +109,11 @@ export function App() {
 
         {/* Audit notification toast */}
         {auditNotification && (
-          <div className="mx-4 sm:mx-6 mt-4 p-3 rounded-[6px] bg-[#f0fdf4] border border-[#bbf7d0] text-[#16a34a] text-xs font-medium flex items-center justify-between shadow-[0px_1px_2px_rgba(0,0,0,0.04)] animate-fadeIn">
+          <div className="mx-4 sm:mx-6 mt-4 p-3.5 rounded-[10px] bg-[#f0fdf4] border border-[#bbf7d0] text-[#16a34a] text-xs font-semibold flex items-center justify-between shadow-[0px_1px_3px_rgba(0,0,0,0.04)] animate-fadeIn">
             <span>{auditNotification}</span>
             <button
               onClick={() => setAuditNotification(null)}
-              className="text-[#16a34a] hover:text-[#15803d] font-semibold ml-2 text-xs"
+              className="text-[#16a34a] hover:text-[#15803d] font-bold ml-2 text-xs"
             >
               Tutup
             </button>
