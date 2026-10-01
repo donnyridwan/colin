@@ -28,7 +28,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`bg-white border border-[#e2e8f0] rounded-[12px] p-5 shadow-[0px_1px_3px_rgba(0,0,0,0.04)] transition-all duration-150 ${
+      className={`bg-white border border-[#e2e8f0] rounded-[16px] p-5 lg:p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)] transition-all duration-150 ${
         onClick
           ? 'cursor-pointer hover:border-[#cbd5e1] hover:shadow-[0px_3px_8px_rgba(0,0,0,0.06)] group'
           : ''

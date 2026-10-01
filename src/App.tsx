@@ -105,6 +105,8 @@ export function App() {
           currentMenu={currentMenu}
           onOpenMobile={() => setIsMobileMenuOpen(true)}
           onOpenSearch={() => setIsSearchModalOpen(true)}
+          onRunAudit={currentMenu === 'overview' ? handleRunAudit : undefined}
+          isAuditing={isAuditing}
         />
 
         {/* Audit notification toast */}
