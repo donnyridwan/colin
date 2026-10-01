@@ -83,7 +83,7 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
 
   return (
     <div className="space-y-5 max-w-7xl mx-auto pb-12">
-      {/* Top Header & Summary from PDF Page 6 (Trackly UI Kit Backlog Style) */}
+      {/* Top Header & Summary from PDF Page 6 (Trackly Pure Monochrome Backlog) */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div>
           <div className="flex items-center gap-2.5">
@@ -93,16 +93,16 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-1.5 text-xs font-semibold mt-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] text-[10px]">
               {assignedCount} assigned
             </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] text-[10px]">
               {generatedCount} generated
             </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] text-[10px]">
               {awaitingCount} awaiting approval
             </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] text-[10px]">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] text-[10px]">
               {completedCount} completed
             </span>
           </div>
@@ -200,22 +200,14 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                       {t.task}
                     </span>
                     {t.priority === 'High' && (
-                      <span className="text-[10px] font-bold text-[#dc2626] shrink-0 bg-[#fff1f2] px-1.5 py-0.2 rounded-[4px] border border-[#ffe4e6]">
-                        High
+                      <span className="text-[10px] font-semibold text-[#0f172a] bg-[#f1f5f9] px-2 py-0.5 rounded-full border border-[#e2e8f0] shrink-0">
+                        High Priority
                       </span>
                     )}
                   </div>
                 </td>
                 <td className="py-3.5 px-4 whitespace-nowrap">
-                  <span
-                    className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${
-                      t.lane === 'TECHNICAL'
-                        ? 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]'
-                        : t.lane === 'CONTENT'
-                        ? 'bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe]'
-                        : 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
-                    }`}
-                  >
+                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
                     {t.lane}
                   </span>
                 </td>
@@ -226,9 +218,9 @@ export const TaskDatabasePage: React.FC<TaskDatabasePageProps> = ({
                     onChange={(val) => onUpdateStatus(t.id, val as TaskStatus)}
                     options={[
                       { label: 'Generated', value: 'Generated', badge: 'New', badgeColor: 'bg-[#f1f5f9] text-[#475569]' },
-                      { label: 'Assigned', value: 'Assigned', badge: 'In flight', badgeColor: 'bg-[#eff6ff] text-[#2563eb]' },
-                      { label: 'Awaiting approval', value: 'Awaiting approval', badge: 'Pending', badgeColor: 'bg-[#fffbeb] text-[#d97706]' },
-                      { label: 'Completed', value: 'Completed', badge: 'Done', badgeColor: 'bg-[#f0fdf4] text-[#16a34a]' },
+                      { label: 'Assigned', value: 'Assigned', badge: 'In flight', badgeColor: 'bg-[#f1f5f9] text-[#475569]' },
+                      { label: 'Awaiting approval', value: 'Awaiting approval', badge: 'Pending', badgeColor: 'bg-[#f1f5f9] text-[#475569]' },
+                      { label: 'Completed', value: 'Completed', badge: 'Done', badgeColor: 'bg-[#0f172a] text-white' },
                     ]}
                   />
                 </td>

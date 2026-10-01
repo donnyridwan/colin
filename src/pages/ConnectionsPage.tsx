@@ -52,7 +52,7 @@ export const ConnectionsPage: React.FC = () => {
         <div>
           <div className="flex items-center gap-2.5">
             <h2 className="text-base font-bold text-[#0f172a] tracking-tight">Active Integrations & APIs</h2>
-            <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
+            <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
               5/5 Active Connections
             </span>
           </div>
@@ -69,7 +69,7 @@ export const ConnectionsPage: React.FC = () => {
 
       {/* 5 Connected Services */}
       <div>
-        <h3 className="text-xs font-bold text-[#16a34a] uppercase tracking-wider mb-3 flex items-center gap-2">
+        <h3 className="text-xs font-bold text-[#0f172a] uppercase tracking-wider mb-3 flex items-center gap-2">
           <CheckCircle className="w-3.5 h-3.5" />
           Active Connected Data Sources (5)
         </h3>
@@ -81,11 +81,11 @@ export const ConnectionsPage: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-8 h-8 rounded-[8px] bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center">
                     {getIcon(item.icon)}
                   </div>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0f172a]" />
                     Connected
                   </span>
                 </div>
@@ -109,7 +109,7 @@ export const ConnectionsPage: React.FC = () => {
       {/* Available / Pending Integrations */}
       <div className="pt-2">
         <h3 className="text-xs font-bold text-[#64748b] uppercase tracking-wider mb-3 flex items-center gap-2">
-          <Plus className="w-3.5 h-3.5 text-[#2563eb]" />
+          <Plus className="w-3.5 h-3.5 text-[#0f172a]" />
           Available & Pending Integrations ({otherConnections.length})
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

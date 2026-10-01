@@ -17,9 +17,11 @@ import {
   Image,
   Video,
   ChevronRight,
-  ShieldCheck,
+  Shield,
   Search as SearchIcon,
   ChevronsUpDown,
+  Settings,
+  HelpCircle,
 } from 'lucide-react';
 import { MenuId } from '../../types';
 
@@ -40,7 +42,6 @@ interface NavSection {
     label: string;
     icon: React.ComponentType<{ className?: string }>;
     badge?: string | number;
-    badgeColor?: string;
     hasContent: boolean;
   }[];
 }
@@ -74,7 +75,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           icon: Globe,
           hasContent: true,
           badge: 'GA4 + PSI',
-          badgeColor: 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]',
         },
         {
           id: 'search-marketing',
@@ -82,7 +82,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           icon: Search,
           hasContent: true,
           badge: 'GSC + Crawl',
-          badgeColor: 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]',
         },
         {
           id: 'paid-media',
@@ -142,7 +141,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           icon: CheckSquare,
           hasContent: true,
           badge: actionableCount > 0 ? actionableCount : undefined,
-          badgeColor: 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]',
         },
         {
           id: 'task-db',
@@ -150,7 +148,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           icon: Database,
           hasContent: true,
           badge: taskCount,
-          badgeColor: 'bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]',
         },
       ],
     },
@@ -163,7 +160,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           icon: Unplug,
           hasContent: true,
           badge: '5/5',
-          badgeColor: 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]',
         },
         {
           id: 'notifications',
@@ -171,7 +167,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           icon: Bell,
           hasContent: true,
           badge: '4',
-          badgeColor: 'bg-[#fff1f2] text-[#e11d48] border border-[#ffe4e6]',
         },
       ],
     },
@@ -209,7 +204,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           isOpenMobile ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Workspace Brand Header (Trackly UI Kit Style) */}
+        {/* Workspace Brand Header (Trackly Monochrome Style) */}
         <div className="h-16 px-4 border-b border-[#e2e8f0] bg-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-[8px] bg-[#0f172a] flex items-center justify-center text-white font-bold text-xs tracking-tight shadow-sm">
@@ -234,7 +229,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </button>
         </div>
 
-        {/* Quick Search Bar (Trackly UI Trigger) */}
+        {/* Quick Search Bar */}
         <div className="px-3 pt-3 pb-1">
           <button
             type="button"
@@ -245,7 +240,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <SearchIcon className="w-3.5 h-3.5 text-[#94a3b8] group-hover:text-[#64748b]" />
               <span>Search menu, tasks...</span>
             </div>
-            <kbd className="bg-white text-[10px] text-[#64748b] font-mono px-1.5 py-0.5 rounded-[4px] border border-[#e2e8f0] shadow-2xs">
+            <kbd className="bg-white text-[10px] text-[#64748b] font-mono px-1.5 py-0.5 rounded-[4px] border border-[#e2e8f0]">
               ⌘K
             </kbd>
           </button>
@@ -288,12 +283,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     </div>
 
                     <div className="flex items-center gap-1.5 shrink-0">
-                      {item.badge && (
-                        <span
-                          className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            item.badgeColor || 'bg-[#f1f5f9] text-[#475569]'
-                          }`}
-                        >
+                      {item.badge !== undefined && (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                           {item.badge}
                         </span>
                       )}
@@ -317,23 +308,41 @@ export const Sidebar: React.FC<SidebarProps> = ({
           ))}
         </div>
 
-        {/* Footer Trackly Pro Tier Card */}
-        <div className="p-3 border-t border-[#e2e8f0] bg-white">
-          <div className="p-3 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0] flex flex-col gap-2">
-            <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-[5px] bg-[#0f172a] text-white flex items-center justify-center">
-                  <ShieldCheck className="w-3 h-3 text-[#22c55e]" />
-                </div>
-                <span className="text-[#0f172a] font-semibold">Audit Pro Tier</span>
-              </div>
-              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
-                Score 73
-              </span>
+        {/* Footer Trackly Promo Card & Links (Pure Monochrome from Figma node 415:38239) */}
+        <div className="p-3 border-t border-[#e2e8f0] bg-white space-y-2.5">
+          <div className="p-3.5 rounded-[12px] bg-[#f8fafc] border border-[#e2e8f0] text-center flex flex-col items-center">
+            <div className="w-8 h-8 rounded-full bg-[#0f172a] text-white flex items-center justify-center mb-2 shadow-xs">
+              <Shield className="w-4 h-4" />
             </div>
-            <div className="text-[11px] text-[#64748b] leading-tight">
-              19 audit findings indexed across 5 connected channels.
+            <div className="text-xs font-bold text-[#0f172a]">
+              Audit Pro Tier
             </div>
+            <div className="text-[11px] text-[#64748b] mt-0.5 leading-snug">
+              Score: 73 · 19 findings indexed
+            </div>
+            <button
+              onClick={() => onSelectMenu('overview')}
+              className="mt-2.5 w-full py-1.5 rounded-[8px] bg-[#0f172a] hover:bg-[#1e293b] text-white text-[11px] font-semibold transition-colors shadow-xs"
+            >
+              View Report
+            </button>
+          </div>
+
+          <div className="px-1 pt-1 flex items-center justify-between text-xs text-[#64748b]">
+            <button
+              onClick={() => onSelectMenu('connections')}
+              className="flex items-center gap-1.5 hover:text-[#0f172a] transition-colors"
+            >
+              <Settings className="w-3.5 h-3.5" />
+              <span>Settings</span>
+            </button>
+            <button
+              onClick={() => onSelectMenu('notifications')}
+              className="flex items-center gap-1.5 hover:text-[#0f172a] transition-colors"
+            >
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>Help & logs</span>
+            </button>
           </div>
         </div>
       </aside>

@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Globe,
-  Gauge,
-  TrendingUp,
   Download,
   Search,
   RefreshCw,
@@ -12,6 +9,7 @@ import {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  Gauge,
 } from 'lucide-react';
 import {
   GA4_KPIS,
@@ -136,9 +134,9 @@ export const WebsitePage: React.FC = () => {
                 href={GA4_KPIS.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#2563eb] hover:underline font-mono font-medium inline-flex items-center gap-1"
+                className="text-[#0f172a] hover:underline font-mono font-semibold inline-flex items-center gap-1"
               >
-                {GA4_KPIS.domain} <ExternalLink className="w-3 h-3" />
+                {GA4_KPIS.domain} <ExternalLink className="w-3 h-3 text-[#64748b]" />
               </a>
               <span className="text-[#cbd5e1] hidden md:inline">·</span>
               <span className="text-[#64748b] hidden md:inline">{GA4_KPIS.dateRange}</span>
@@ -146,7 +144,7 @@ export const WebsitePage: React.FC = () => {
               <span className="text-[#64748b] hidden md:inline">{GA4_KPIS.totalRows} rows indexed</span>
             </div>
             <div className="flex items-center gap-2 text-[#64748b] font-mono text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-[#16a34a] inline-block animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#0f172a] inline-block" />
               Data synchronized · {GA4_KPIS.asOf}
             </div>
           </div>
@@ -159,7 +157,6 @@ export const WebsitePage: React.FC = () => {
               change={GA4_KPIS.sessions.change}
               changeDirection="up"
               subtext="vs previous 28 days"
-              accentColor="blue"
             />
             <StatCard
               label="Users"
@@ -167,7 +164,6 @@ export const WebsitePage: React.FC = () => {
               change={GA4_KPIS.users.change}
               changeDirection="up"
               subtext="vs previous 28 days"
-              accentColor="indigo"
             />
             <StatCard
               label="Pageviews"
@@ -175,7 +171,6 @@ export const WebsitePage: React.FC = () => {
               change={GA4_KPIS.pageviews.change}
               changeDirection="up"
               subtext="vs previous 28 days"
-              accentColor="emerald"
             />
             <StatCard
               label="Key Events"
@@ -183,7 +178,6 @@ export const WebsitePage: React.FC = () => {
               change="0"
               changeDirection="neutral"
               subtext="Conversions recorded"
-              accentColor="slate"
             />
           </div>
 
@@ -252,7 +246,7 @@ export const WebsitePage: React.FC = () => {
                   <tbody className="divide-y divide-[#e2e8f0] text-[#0f172a]">
                     {displayedPages.map((row, idx) => (
                       <tr key={idx} className="hover:bg-[#f8fafc] transition-colors">
-                        <td className="py-3 px-4 font-mono text-[#2563eb] hover:underline max-w-xs truncate font-medium">
+                        <td className="py-3 px-4 font-mono text-[#0f172a] hover:underline max-w-xs truncate font-medium">
                           {row.page}
                         </td>
                         <td className="py-3 px-4 font-mono text-[#64748b] text-[11px]">
@@ -263,15 +257,7 @@ export const WebsitePage: React.FC = () => {
                         </td>
                         <td className="py-3 px-4 text-right text-[#475569]">{row.users}</td>
                         <td className="py-3 px-4 text-right">
-                          <span
-                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold ${
-                              parseInt(row.engagement) >= 80
-                                ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
-                                : parseInt(row.engagement) >= 40
-                                ? 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]'
-                                : 'bg-[#f1f5f9] text-[#64748b] border border-[#e2e8f0]'
-                            }`}
-                          >
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
                             {row.engagement}
                           </span>
                         </td>
@@ -317,7 +303,7 @@ export const WebsitePage: React.FC = () => {
           <div className="flex items-center justify-between p-4 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
             <div>
               <h2 className="text-xs font-bold text-[#0f172a] uppercase tracking-wider flex items-center gap-2">
-                <Gauge className="w-4 h-4 text-[#2563eb]" />
+                <Gauge className="w-4 h-4 text-[#0f172a]" />
                 PageSpeed Insights — Core Web Vitals
               </h2>
               <div className="text-xs text-[#64748b] font-mono mt-0.5">
@@ -335,10 +321,10 @@ export const WebsitePage: React.FC = () => {
             <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e2e8f0]">
                 <div className="flex items-center gap-2 text-[#0f172a] font-bold text-xs">
-                  <Smartphone className="w-4 h-4 text-[#d97706]" />
+                  <Smartphone className="w-4 h-4 text-[#64748b]" />
                   <span>MOBILE PERFORMANCE</span>
                 </div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7] font-semibold">
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] font-semibold">
                   Needs Improvement
                 </span>
               </div>
@@ -346,19 +332,19 @@ export const WebsitePage: React.FC = () => {
               <div className="grid grid-cols-4 gap-2.5 mb-5 text-center">
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">Perf</div>
-                  <div className="text-[22px] font-bold text-[#d97706] mt-0.5">{PAGESPEED_MOBILE.performance}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_MOBILE.performance}</div>
                 </div>
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">SEO</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_MOBILE.seo}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_MOBILE.seo}</div>
                 </div>
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">Access</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_MOBILE.accessibility}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_MOBILE.accessibility}</div>
                 </div>
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">Best Prac</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_MOBILE.bestPractices}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_MOBILE.bestPractices}</div>
                 </div>
               </div>
 
@@ -366,19 +352,19 @@ export const WebsitePage: React.FC = () => {
               <div className="space-y-2 text-xs">
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">Largest Contentful Paint (LCP)</span>
-                  <span className="font-mono font-bold text-[#dc2626]">{PAGESPEED_MOBILE.lcp} (High)</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_MOBILE.lcp}</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">Cumulative Layout Shift (CLS)</span>
-                  <span className="font-mono font-bold text-[#16a34a]">{PAGESPEED_MOBILE.cls} (Good)</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_MOBILE.cls}</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">Total Blocking Time (TBT)</span>
-                  <span className="font-mono font-bold text-[#16a34a]">{PAGESPEED_MOBILE.tbt} (Good)</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_MOBILE.tbt}</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">First Contentful Paint (FCP)</span>
-                  <span className="font-mono font-bold text-[#d97706]">{PAGESPEED_MOBILE.fcp}</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_MOBILE.fcp}</span>
                 </div>
               </div>
             </div>
@@ -387,10 +373,10 @@ export const WebsitePage: React.FC = () => {
             <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e2e8f0]">
                 <div className="flex items-center gap-2 text-[#0f172a] font-bold text-xs">
-                  <Monitor className="w-4 h-4 text-[#16a34a]" />
+                  <Monitor className="w-4 h-4 text-[#64748b]" />
                   <span>DESKTOP PERFORMANCE</span>
                 </div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] font-semibold">
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] font-semibold">
                   Good Condition
                 </span>
               </div>
@@ -398,19 +384,19 @@ export const WebsitePage: React.FC = () => {
               <div className="grid grid-cols-4 gap-2.5 mb-5 text-center">
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">Perf</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_DESKTOP.performance}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_DESKTOP.performance}</div>
                 </div>
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">SEO</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_DESKTOP.seo}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_DESKTOP.seo}</div>
                 </div>
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">Access</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_DESKTOP.accessibility}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_DESKTOP.accessibility}</div>
                 </div>
                 <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <div className="text-[10px] font-bold text-[#64748b] uppercase">Best Prac</div>
-                  <div className="text-[22px] font-bold text-[#16a34a] mt-0.5">{PAGESPEED_DESKTOP.bestPractices}</div>
+                  <div className="text-[24px] font-bold text-[#0f172a] mt-0.5">{PAGESPEED_DESKTOP.bestPractices}</div>
                 </div>
               </div>
 
@@ -418,19 +404,19 @@ export const WebsitePage: React.FC = () => {
               <div className="space-y-2 text-xs">
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">Largest Contentful Paint (LCP)</span>
-                  <span className="font-mono font-bold text-[#16a34a]">{PAGESPEED_DESKTOP.lcp} (Fast)</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_DESKTOP.lcp}</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">Cumulative Layout Shift (CLS)</span>
-                  <span className="font-mono font-bold text-[#16a34a]">{PAGESPEED_DESKTOP.cls}</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_DESKTOP.cls}</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">Total Blocking Time (TBT)</span>
-                  <span className="font-mono font-bold text-[#16a34a]">{PAGESPEED_DESKTOP.tbt}</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_DESKTOP.tbt}</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
                   <span className="text-[#64748b]">First Contentful Paint (FCP)</span>
-                  <span className="font-mono font-bold text-[#16a34a]">{PAGESPEED_DESKTOP.fcp}</span>
+                  <span className="font-mono font-bold text-[#0f172a]">{PAGESPEED_DESKTOP.fcp}</span>
                 </div>
               </div>
             </div>
@@ -482,7 +468,7 @@ export const WebsitePage: React.FC = () => {
               <tbody className="divide-y divide-[#e2e8f0] text-[#0f172a]">
                 {trackedPagesList.map((item, idx) => (
                   <tr key={idx} className="hover:bg-[#f8fafc] transition-colors">
-                    <td className="py-3 px-4 font-mono text-[#2563eb] font-medium">{item.page}</td>
+                    <td className="py-3 px-4 font-mono text-[#0f172a] font-medium">{item.page}</td>
                     <td className="py-3 px-4">
                       <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] font-medium border border-[#e2e8f0]">
                         {item.source}
@@ -496,13 +482,9 @@ export const WebsitePage: React.FC = () => {
                     </td>
                     <td className="py-3 px-4 text-center font-mono text-[#64748b]">{item.lcp}</td>
                     <td className="py-3 px-4 text-center">
-                      {item.sfStatus === '200' ? (
-                        <span className="px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] font-mono text-[10px] font-semibold">
-                          200 OK
-                        </span>
-                      ) : (
-                        <span className="text-[#94a3b8] font-mono">—</span>
-                      )}
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0] font-mono text-[10px] font-semibold">
+                        {item.sfStatus === '200' ? '200 OK' : '—'}
+                      </span>
                     </td>
                   </tr>
                 ))}

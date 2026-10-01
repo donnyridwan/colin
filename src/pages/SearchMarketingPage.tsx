@@ -116,14 +116,14 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-bold text-[#0f172a] uppercase tracking-wide">GSC — SEARCH QUERIES</span>
               <span className="text-[#cbd5e1]">|</span>
-              <span className="text-[#2563eb] font-mono font-medium">https://aizonemarketing.io/</span>
+              <span className="text-[#0f172a] font-mono font-medium">https://aizonemarketing.io/</span>
               <span className="text-[#cbd5e1] hidden md:inline">·</span>
               <span className="text-[#64748b] hidden md:inline">{GSC_KPIS.dateRange}</span>
               <span className="text-[#cbd5e1] hidden md:inline">·</span>
               <span className="text-[#64748b] hidden md:inline">{GSC_QUERIES.length} queries</span>
             </div>
             <div className="text-[#64748b] font-mono text-[11px] flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#16a34a] inline-block animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#0f172a] inline-block" />
               Verified domain · {GSC_KPIS.asOf}
             </div>
           </div>
@@ -135,30 +135,28 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
               value={GSC_KPIS.clicks.value}
               subtext="Organic search clicks"
               badge="GSC"
-              accentColor="blue"
             />
             <StatCard
               label="Impressions"
               value={GSC_KPIS.impressions.value}
-              subtext={`Visibility (${GSC_KPIS.impressions.change})`}
+              change={GSC_KPIS.impressions.change}
+              changeDirection="up"
+              subtext="Search visibility"
               badge="Top Performer"
-              badgeColor="bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]"
-              accentColor="emerald"
             />
             <StatCard
               label="CTR"
               value={GSC_KPIS.ctr.value}
               subtext="Click-through rate"
               badge="GSC"
-              accentColor="amber"
             />
             <StatCard
               label="Avg Position"
               value={GSC_KPIS.avgPosition.value}
-              subtext={`Google ranking (${GSC_KPIS.avgPosition.change})`}
+              change={GSC_KPIS.avgPosition.change}
+              changeDirection="up"
+              subtext="Average ranking"
               badge="Improved"
-              badgeColor="bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]"
-              accentColor="indigo"
             />
           </div>
 
@@ -196,13 +194,13 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                   {GSC_QUERIES.map((row, idx) => (
                     <tr key={idx} className="hover:bg-[#f8fafc] transition-colors">
                       <td className="py-3 px-4 font-semibold text-[#0f172a]">{row.query}</td>
-                      <td className="py-3 px-4 font-mono text-[#2563eb] text-[11px] truncate max-w-xs font-medium">
+                      <td className="py-3 px-4 font-mono text-[#64748b] text-[11px] truncate max-w-xs font-medium">
                         {row.page}
                       </td>
                       <td className="py-3 px-4 text-right font-mono font-medium">{row.clicks}</td>
                       <td className="py-3 px-4 text-right font-mono font-bold text-[#0f172a]">{row.impressions}</td>
                       <td className="py-3 px-4 text-right font-mono">{row.ctr}</td>
-                      <td className="py-3 px-4 text-right font-mono font-bold text-[#16a34a]">
+                      <td className="py-3 px-4 text-right font-mono font-bold text-[#0f172a]">
                         {row.position}
                       </td>
                     </tr>
@@ -220,7 +218,7 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
           <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-[#e2e8f0]">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-[8px] bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center shrink-0">
                   <TrendingUp className="w-4 h-4" />
                 </div>
                 <div>
@@ -265,17 +263,17 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
               <span className="text-[#cbd5e1]">·</span>
               <span className="text-[#0f172a] font-semibold">{CRAWL_OVERVIEW.pagesCrawled} pages</span>
               <span className="text-[#cbd5e1]">·</span>
-              <span className="text-[#16a34a] font-semibold">scheduled crawl</span>
+              <span className="text-[#64748b] font-medium">scheduled crawl</span>
             </div>
 
             <div className="flex items-center gap-2.5">
               {onNavigate && (
                 <button
                   onClick={() => onNavigate('notifications')}
-                  className="inline-flex items-center gap-1 text-xs text-[#2563eb] hover:underline font-semibold"
+                  className="inline-flex items-center gap-1 text-xs text-[#0f172a] hover:underline font-semibold"
                 >
                   <span>View Crawl Logs in Notifications</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 text-[#64748b]" />
                 </button>
               )}
               <button className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[8px] bg-white hover:bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] font-semibold text-xs transition-colors shadow-xs">
@@ -294,48 +292,48 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                 <div className="flex items-baseline gap-2 mt-2">
                   <span className="text-[36px] font-bold text-[#0f172a] leading-none">{CRAWL_OVERVIEW.score}</span>
                   <span className="text-xs text-[#64748b]">/ 100</span>
-                  <span className="ml-2 px-2.5 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7] text-[10px] font-bold uppercase">
+                  <span className="ml-2 px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0] text-[10px] font-bold uppercase">
                     {CRAWL_OVERVIEW.scoreLabel}
                   </span>
                 </div>
                 <div className="text-xs text-[#64748b] mt-4 space-y-1">
                   <div>{CRAWL_OVERVIEW.pagesCrawled} pages crawled · avg {CRAWL_OVERVIEW.avgTime}</div>
-                  <div className="text-[#d97706] font-medium">{CRAWL_OVERVIEW.redirects3xx} redirects (3xx) · {CRAWL_OVERVIEW.nonIndexable} non-indexable</div>
+                  <div>{CRAWL_OVERVIEW.redirects3xx} redirects (3xx) · {CRAWL_OVERVIEW.nonIndexable} non-indexable</div>
                 </div>
               </div>
             </div>
 
-            {/* Error counts */}
+            {/* Error counts (Monochrome Slate Containers) */}
             <div className="lg:col-span-2 p-6 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)] flex flex-col justify-between">
               <div>
                 <div className="grid grid-cols-3 gap-3 mb-4">
-                  <div className="p-3.5 rounded-[10px] bg-[#fff1f2] border border-[#ffe4e6]">
-                    <span className="text-[10px] font-bold text-[#dc2626] uppercase">Errors</span>
-                    <div className="text-2xl font-bold text-[#dc2626] mt-0.5">{CRAWL_OVERVIEW.errors}</div>
+                  <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0]">
+                    <span className="text-[10px] font-bold text-[#64748b] uppercase">Errors</span>
+                    <div className="text-2xl font-bold text-[#0f172a] mt-0.5">{CRAWL_OVERVIEW.errors}</div>
                   </div>
-                  <div className="p-3.5 rounded-[10px] bg-[#fffbeb] border border-[#fef3c7]">
-                    <span className="text-[10px] font-bold text-[#d97706] uppercase">Warnings</span>
-                    <div className="text-2xl font-bold text-[#d97706] mt-0.5">{CRAWL_OVERVIEW.warnings}</div>
+                  <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0]">
+                    <span className="text-[10px] font-bold text-[#64748b] uppercase">Warnings</span>
+                    <div className="text-2xl font-bold text-[#0f172a] mt-0.5">{CRAWL_OVERVIEW.warnings}</div>
                   </div>
-                  <div className="p-3.5 rounded-[10px] bg-[#eff6ff] border border-[#dbeafe]">
-                    <span className="text-[10px] font-bold text-[#2563eb] uppercase">Notices</span>
-                    <div className="text-2xl font-bold text-[#2563eb] mt-0.5">{CRAWL_OVERVIEW.notices}</div>
+                  <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0]">
+                    <span className="text-[10px] font-bold text-[#64748b] uppercase">Notices</span>
+                    <div className="text-2xl font-bold text-[#0f172a] mt-0.5">{CRAWL_OVERVIEW.notices}</div>
                   </div>
                 </div>
 
-                {/* HTTP Status Breakdown bar */}
+                {/* HTTP Status Breakdown bar (Monochrome Slate Shades) */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs text-[#64748b] font-medium">
-                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#16a34a]" /> Healthy (2xx): 100</span>
-                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#f59e0b]" /> Redirects (3xx): 226</span>
-                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#ef4444]" /> Broken (4xx/5xx): 151</span>
-                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#94a3b8]" /> Blocked: 1</span>
+                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#0f172a]" /> Healthy (2xx): 100</span>
+                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#64748b]" /> Redirects (3xx): 226</span>
+                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#94a3b8]" /> Broken (4xx/5xx): 151</span>
+                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#cbd5e1]" /> Blocked: 1</span>
                   </div>
                   <div className="h-2.5 w-full bg-[#f1f5f9] rounded-full overflow-hidden flex border border-[#e2e8f0]">
-                    <div style={{ width: '21%' }} className="bg-[#16a34a] h-full" />
-                    <div style={{ width: '47%' }} className="bg-[#f59e0b] h-full" />
-                    <div style={{ width: '31%' }} className="bg-[#ef4444] h-full" />
-                    <div style={{ width: '1%' }} className="bg-[#94a3b8] h-full" />
+                    <div style={{ width: '21%' }} className="bg-[#0f172a] h-full" />
+                    <div style={{ width: '47%' }} className="bg-[#64748b] h-full" />
+                    <div style={{ width: '31%' }} className="bg-[#94a3b8] h-full" />
+                    <div style={{ width: '1%' }} className="bg-[#cbd5e1] h-full" />
                   </div>
                 </div>
               </div>
@@ -361,8 +359,8 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                   onClick={() => setIssueFilter('ERROR')}
                   className={`px-3 py-1 rounded-[8px] text-xs font-semibold transition-colors ${
                     issueFilter === 'ERROR'
-                      ? 'bg-[#dc2626] text-white'
-                      : 'bg-[#fff1f2] text-[#dc2626] hover:bg-[#ffe4e6]'
+                      ? 'bg-[#0f172a] text-white'
+                      : 'bg-[#f1f5f9] text-[#475569] hover:bg-[#e2e8f0]'
                   }`}
                 >
                   Errors (3)
@@ -371,8 +369,8 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                   onClick={() => setIssueFilter('WARNING')}
                   className={`px-3 py-1 rounded-[8px] text-xs font-semibold transition-colors ${
                     issueFilter === 'WARNING'
-                      ? 'bg-[#d97706] text-white'
-                      : 'bg-[#fffbeb] text-[#d97706] hover:bg-[#fef3c7]'
+                      ? 'bg-[#0f172a] text-white'
+                      : 'bg-[#f1f5f9] text-[#475569] hover:bg-[#e2e8f0]'
                   }`}
                 >
                   Warnings (2)
@@ -381,16 +379,16 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                   onClick={() => setIssueFilter('NOTICE')}
                   className={`px-3 py-1 rounded-[8px] text-xs font-semibold transition-colors ${
                     issueFilter === 'NOTICE'
-                      ? 'bg-[#2563eb] text-white'
-                      : 'bg-[#eff6ff] text-[#2563eb] hover:bg-[#dbeafe]'
+                      ? 'bg-[#0f172a] text-white'
+                      : 'bg-[#f1f5f9] text-[#475569] hover:bg-[#e2e8f0]'
                   }`}
                 >
                   Notices (4)
                 </button>
               </div>
 
-              <div className="text-xs text-[#16a34a] font-semibold flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4" />
+              <div className="text-xs text-[#0f172a] font-semibold flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#0f172a]" />
                 <span>14 checks passed</span>
               </div>
             </div>
@@ -402,15 +400,7 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                   className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-[#f8fafc] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span
-                      className={`text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
-                        issue.type === 'ERROR'
-                          ? 'bg-[#fff1f2] text-[#dc2626] border border-[#ffe4e6]'
-                          : issue.type === 'WARNING'
-                          ? 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]'
-                          : 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]'
-                      }`}
-                    >
+                    <span className="text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
                       {issue.type}
                     </span>
                     <span className="text-xs font-bold text-[#0f172a]">{issue.title}</span>
@@ -424,13 +414,7 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                       </span>
                     </span>
 
-                    <span
-                      className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${
-                        issue.actionTag === 'Task created'
-                          ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
-                          : 'bg-[#f1f5f9] text-[#64748b] border border-[#e2e8f0]'
-                      }`}
-                    >
+                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                       {issue.actionTag}
                     </span>
                   </div>
@@ -463,10 +447,10 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                     <tr key={idx} className="hover:bg-[#f8fafc] transition-colors">
                       <td className="py-3 px-4 font-semibold text-[#0f172a]">{row.date}</td>
                       <td className="py-3 px-4 text-right">{row.pages}</td>
-                      <td className="py-3 px-4 text-right text-[#dc2626] font-bold">{row.broken}</td>
-                      <td className="py-3 px-4 text-right text-[#d97706]">{row.nonIdx}</td>
+                      <td className="py-3 px-4 text-right font-bold text-[#0f172a]">{row.broken}</td>
+                      <td className="py-3 px-4 text-right">{row.nonIdx}</td>
                       <td className="py-3 px-4 text-right">{row.avgTime}</td>
-                      <td className="py-3 px-4 text-right font-bold text-[#16a34a]">{row.health}</td>
+                      <td className="py-3 px-4 text-right font-bold text-[#0f172a]">{row.health}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -531,19 +515,11 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                 <tbody className="divide-y divide-[#e2e8f0] font-mono text-[#0f172a]">
                   {filteredUrls.map((row, idx) => (
                     <tr key={idx} className="hover:bg-[#f8fafc] transition-colors">
-                      <td className="py-3 px-4 text-[#2563eb] font-medium max-w-xs truncate">
+                      <td className="py-3 px-4 font-mono text-[#0f172a] font-medium max-w-xs truncate">
                         {row.url}
                       </td>
                       <td className="py-3 px-4">
-                        <span
-                          className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                            row.status === 200
-                              ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
-                              : row.status === 301
-                              ? 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]'
-                              : 'bg-[#fff1f2] text-[#dc2626] border border-[#ffe4e6]'
-                          }`}
-                        >
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
                           {row.status}
                         </span>
                       </td>
@@ -552,9 +528,7 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
                       </td>
                       <td className="py-3 px-4 text-right">{row.titleLen}</td>
                       <td className="py-3 px-4 text-right">
-                        <span className={row.metaLen === 0 ? 'text-[#dc2626] font-bold' : ''}>
-                          {row.metaLen}
-                        </span>
+                        <span>{row.metaLen}</span>
                       </td>
                       <td className="py-3 px-4 text-right">{row.words}</td>
                       <td className="py-3 px-4 text-right">{row.size}</td>
@@ -576,7 +550,7 @@ export const SearchMarketingPage: React.FC<SearchMarketingPageProps> = ({ onNavi
       {/* 4. OFF-PAGE BACKLINKS AUDIT (From PDF Page 5-6) */}
       {activeSubTab === 'backlinks' && (
         <div className="bg-white border border-[#e2e8f0] rounded-[16px] p-10 text-center shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
-          <div className="w-16 h-16 rounded-full bg-[#f8fafc] border border-[#e2e8f0] text-[#7c3aed] flex items-center justify-center mx-auto mb-4 shadow-xs">
+          <div className="w-16 h-16 rounded-full bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] flex items-center justify-center mx-auto mb-4 shadow-xs">
             <Link2 className="w-7 h-7" />
           </div>
           <h3 className="text-xl font-bold text-[#0f172a]">BACKLINKS AUDIT</h3>

@@ -16,14 +16,14 @@ export const NotificationsPage: React.FC = () => {
       <div className="flex items-center justify-between p-5 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div>
           <h2 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider flex items-center gap-2">
-            <Bell className="w-4 h-4 text-[#2563eb]" />
+            <Bell className="w-4 h-4 text-[#0f172a]" />
             Audit & System Notifications
           </h2>
           <p className="text-xs text-[#64748b] mt-1 leading-relaxed">
             Automated event logs generated from weekly scheduled crawls, PageSpeed audits, and task approvals.
           </p>
         </div>
-        <button className="text-xs text-[#2563eb] hover:underline font-semibold">
+        <button className="text-xs text-[#0f172a] hover:underline font-semibold">
           Mark all as read
         </button>
       </div>
@@ -32,7 +32,7 @@ export const NotificationsPage: React.FC = () => {
       <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[#e2e8f0]">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-[8px] bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center shrink-0">
               <Activity className="w-4 h-4" />
             </div>
             <div>
@@ -40,7 +40,7 @@ export const NotificationsPage: React.FC = () => {
                 <h3 className="text-xs font-bold text-[#0f172a] uppercase tracking-wide">
                   Crawl Station — Weekly Audit Log
                 </h3>
-                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
+                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
                   Done · 478 Pages
                 </span>
               </div>
@@ -64,7 +64,7 @@ export const NotificationsPage: React.FC = () => {
 
           <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
             <span className="text-[10px] text-[#64748b] font-semibold block uppercase">Fixed</span>
-            <span className="text-sm font-bold text-[#16a34a] font-mono mt-0.5 block">0</span>
+            <span className="text-sm font-bold text-[#0f172a] font-mono mt-0.5 block">0</span>
           </div>
 
           <div className="p-3 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0]">
@@ -104,17 +104,7 @@ export const NotificationsPage: React.FC = () => {
                 : 'bg-white border-[#cbd5e1] shadow-[0px_1px_3px_rgba(0,0,0,0.04)] text-[#0f172a]'
             }`}
           >
-            <div
-              className={`w-8 h-8 rounded-[8px] flex items-center justify-center shrink-0 mt-0.5 ${
-                item.type === 'warning'
-                  ? 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]'
-                  : item.type === 'alert'
-                  ? 'bg-[#fff1f2] text-[#dc2626] border border-[#ffe4e6]'
-                  : item.type === 'success'
-                  ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7]'
-                  : 'bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe]'
-              }`}
-            >
+            <div className="w-8 h-8 rounded-[8px] flex items-center justify-center shrink-0 mt-0.5 bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0]">
               {item.type === 'warning' && <AlertTriangle className="w-4 h-4" />}
               {item.type === 'alert' && <AlertOctagon className="w-4 h-4" />}
               {item.type === 'success' && <CheckCircle2 className="w-4 h-4" />}

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Sparkles,
   ArrowUpRight,
-  AlertTriangle,
   ChevronRight,
   TrendingUp,
   Activity,
@@ -41,17 +40,17 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
-      {/* 1. AI SITE AUDIT EXECUTIVE CARD (Trackly UI Kit Style) */}
+      {/* 1. AI SITE AUDIT EXECUTIVE CARD (Trackly Monochrome Style) */}
       <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-5 sm:p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-5 mb-5">
           <div className="flex items-start sm:items-center gap-3.5">
-            <div className="w-10 h-10 rounded-[10px] bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe] flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-10 h-10 rounded-[10px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center shrink-0">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="text-[17px] font-bold text-[#0f172a] tracking-tight">AI Site Audit Overview</h2>
-                <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]">
+                <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                   {AI_AUDIT_DATA.findingsCount} findings
                 </span>
                 <span className="text-xs text-[#64748b] font-mono">
@@ -103,21 +102,19 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
         {/* AI Synthesis Statement */}
         <div className="p-4 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0] text-[13px] text-[#475569] leading-relaxed">
           <p className="flex items-start gap-2.5">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#2563eb] mt-1.5 shrink-0" />
+            <span className="inline-block w-2 h-2 rounded-full bg-[#0f172a] mt-1.5 shrink-0" />
             <span>{AI_AUDIT_DATA.summary}</span>
           </p>
         </div>
       </div>
 
-      {/* 2. FOUR PRIMARY AUDIT KPI CARDS (Trackly UI Kit Style) */}
+      {/* 2. FOUR PRIMARY AUDIT KPI CARDS (Trackly Pure Monochrome Style) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           label="Open Tasks"
           value={openTasks.length}
           subtext="Issues awaiting action"
           badge="Audit Sync"
-          badgeColor="bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]"
-          accentColor="amber"
           onClick={() => onNavigate('task-db')}
         />
         <StatCard
@@ -125,8 +122,6 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
           value={confirmedTasks.length}
           subtext="Issues verified & closed"
           badge="Completed"
-          badgeColor="bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]"
-          accentColor="emerald"
           onClick={() => onNavigate('task-db')}
         />
         <StatCard
@@ -134,17 +129,13 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
           value={highPriorityTasks.length}
           subtext="Urgent technical/ads items"
           badge="Critical"
-          badgeColor="bg-[#fff1f2] text-[#e11d48] border border-[#ffe4e6]"
-          accentColor="rose"
           onClick={() => onNavigate('actionable-items')}
         />
         <StatCard
           label="Active Connections"
           value={AI_AUDIT_DATA.activeConnections}
           subtext="GA4, GSC, PSI, SF, Clarity"
-          badge="5/5 Green"
-          badgeColor="bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]"
-          accentColor="blue"
+          badge="5/5 Synced"
           onClick={() => onNavigate('connections')}
         />
       </div>
@@ -156,7 +147,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-[8px] bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center">
                   <Globe className="w-4 h-4" />
                 </div>
                 <div>
@@ -166,7 +157,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
               </div>
               <button
                 onClick={() => onNavigate('website')}
-                className="text-xs text-[#2563eb] hover:text-[#1d4ed8] font-semibold inline-flex items-center gap-1"
+                className="text-xs text-[#0f172a] hover:text-[#475569] font-semibold inline-flex items-center gap-1"
               >
                 Deep Dive <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
@@ -175,7 +166,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
             <div className="grid grid-cols-3 gap-3 my-4">
               <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0]">
                 <span className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">Sessions</span>
-                <div className="text-[22px] font-bold text-[#0f172a] mt-1">{GA4_KPIS.sessions.value}</div>
+                <div className="text-[24px] font-bold text-[#0f172a] mt-1">{GA4_KPIS.sessions.value}</div>
                 <div className="text-xs text-[#16a34a] font-semibold flex items-center gap-1 mt-1">
                   <TrendingUp className="w-3 h-3" /> {GA4_KPIS.sessions.change}
                 </div>
@@ -183,7 +174,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
 
               <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0]">
                 <span className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">Users</span>
-                <div className="text-[22px] font-bold text-[#0f172a] mt-1">{GA4_KPIS.users.value}</div>
+                <div className="text-[24px] font-bold text-[#0f172a] mt-1">{GA4_KPIS.users.value}</div>
                 <div className="text-xs text-[#16a34a] font-semibold flex items-center gap-1 mt-1">
                   <TrendingUp className="w-3 h-3" /> {GA4_KPIS.users.change}
                 </div>
@@ -191,7 +182,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
 
               <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0]">
                 <span className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">Pageviews</span>
-                <div className="text-[22px] font-bold text-[#0f172a] mt-1">{GA4_KPIS.pageviews.value}</div>
+                <div className="text-[24px] font-bold text-[#0f172a] mt-1">{GA4_KPIS.pageviews.value}</div>
                 <div className="text-xs text-[#16a34a] font-semibold flex items-center gap-1 mt-1">
                   <TrendingUp className="w-3 h-3" /> {GA4_KPIS.pageviews.change}
                 </div>
@@ -200,7 +191,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
 
             <div className="text-xs text-[#475569] bg-[#f8fafc] p-3 rounded-[10px] border border-[#e2e8f0]">
               <span className="font-semibold text-[#0f172a]">Top Landing Page:</span>{' '}
-              <code className="text-[#2563eb] font-mono font-medium">/home-copy/</code> (31 sessions, 84% engagement rate)
+              <code className="text-[#0f172a] font-mono font-semibold">/home-copy/</code> (31 sessions, 84% engagement rate)
             </div>
           </div>
         </div>
@@ -210,7 +201,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-[8px] bg-[#fffbeb] text-[#d97706] border border-[#fef3c7] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center">
                   <Activity className="w-4 h-4" />
                 </div>
                 <div>
@@ -220,7 +211,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
               </div>
               <button
                 onClick={() => onNavigate('search-marketing')}
-                className="text-xs text-[#2563eb] hover:text-[#1d4ed8] font-semibold inline-flex items-center gap-1"
+                className="text-xs text-[#0f172a] hover:text-[#475569] font-semibold inline-flex items-center gap-1"
               >
                 Crawl Audit <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
@@ -231,18 +222,18 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
               <div className="flex items-baseline gap-1.5 bg-[#f8fafc] px-4 py-2.5 rounded-[10px] border border-[#e2e8f0]">
                 <span className="text-[28px] font-bold text-[#0f172a]">{CRAWL_OVERVIEW.score}</span>
                 <span className="text-xs text-[#64748b] font-medium">/ 100</span>
-                <span className="ml-2 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]">
+                <span className="ml-2 text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                   {CRAWL_OVERVIEW.scoreLabel}
                 </span>
               </div>
               <div className="text-xs text-[#64748b] leading-tight">
                 Avg crawl: <span className="text-[#0f172a] font-mono font-semibold">{CRAWL_OVERVIEW.avgTime}</span>
                 <br />
-                Non-indexable: <span className="text-[#d97706] font-semibold">{CRAWL_OVERVIEW.nonIndexable} pages</span>
+                Non-indexable: <span className="text-[#0f172a] font-semibold">{CRAWL_OVERVIEW.nonIndexable} pages</span>
               </div>
             </div>
 
-            {/* HTTP Status Breakdown bar */}
+            {/* HTTP Status Breakdown bar (Monochrome Slate Shades) */}
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs text-[#64748b] font-medium">
                 <span>Healthy 2xx (100)</span>
@@ -250,10 +241,10 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
                 <span>Broken 4xx/5xx (151)</span>
               </div>
               <div className="h-2.5 w-full bg-[#f1f5f9] rounded-full overflow-hidden flex border border-[#e2e8f0]">
-                <div style={{ width: '21%' }} className="bg-[#16a34a] h-full" title="Healthy 2xx" />
-                <div style={{ width: '47%' }} className="bg-[#f59e0b] h-full" title="3xx Redirects" />
-                <div style={{ width: '31%' }} className="bg-[#ef4444] h-full" title="Broken 4xx/5xx" />
-                <div style={{ width: '1%' }} className="bg-[#94a3b8] h-full" title="Blocked" />
+                <div style={{ width: '21%' }} className="bg-[#0f172a] h-full" title="Healthy 2xx" />
+                <div style={{ width: '47%' }} className="bg-[#64748b] h-full" title="3xx Redirects" />
+                <div style={{ width: '31%' }} className="bg-[#94a3b8] h-full" title="Broken 4xx/5xx" />
+                <div style={{ width: '1%' }} className="bg-[#cbd5e1] h-full" title="Blocked" />
               </div>
             </div>
           </div>
@@ -265,7 +256,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
         {/* GSC Quick Card */}
         <div className="p-5 rounded-[12px] bg-white border border-[#e2e8f0] flex items-center justify-between shadow-[0px_1px_3px_rgba(0,0,0,0.04)] hover:border-[#cbd5e1] transition-all">
           <div className="flex items-center gap-3.5">
-            <div className="w-9 h-9 rounded-[8px] bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center shrink-0">
               <Search className="w-4 h-4" />
             </div>
             <div>
@@ -287,15 +278,15 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
         {/* PageSpeed Quick Card */}
         <div className="p-5 rounded-[12px] bg-white border border-[#e2e8f0] flex items-center justify-between shadow-[0px_1px_3px_rgba(0,0,0,0.04)] hover:border-[#cbd5e1] transition-all">
           <div className="flex items-center gap-3.5">
-            <div className="w-9 h-9 rounded-[8px] bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center shrink-0">
               <Gauge className="w-4 h-4" />
             </div>
             <div>
               <div className="text-xs text-[#64748b] font-medium">PageSpeed Insights Score</div>
               <div className="text-[15px] font-bold text-[#0f172a] mt-0.5 flex items-center gap-2">
-                <span className="text-[#16a34a]">Desktop: 85</span>
+                <span>Desktop: 85</span>
                 <span className="text-[#cbd5e1]">|</span>
-                <span className="text-[#d97706]">Mobile: 67</span>
+                <span>Mobile: 67</span>
               </div>
               <div className="text-xs text-[#64748b]">Mobile LCP requires optimization (13.4s)</div>
             </div>
@@ -309,13 +300,13 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
         </div>
       </div>
 
-      {/* 5. TOP ACTIONABLE TASKS SECTION (Trackly Table / List DNA) */}
+      {/* 5. TOP ACTIONABLE TASKS SECTION (Trackly Monochrome Table DNA) */}
       <div className="bg-white border border-[#e2e8f0] rounded-[12px] p-5 sm:p-6 shadow-[0px_1px_3px_rgba(0,0,0,0.04)]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
             <h3 className="text-[15px] font-bold text-[#0f172a] flex items-center gap-2">
               Action Items Requiring Attention
-              <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]">
+              <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                 {openTasks.length} pending
               </span>
             </h3>
@@ -325,7 +316,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
           </div>
           <button
             onClick={() => onNavigate('actionable-items')}
-            className="text-xs text-[#2563eb] hover:text-[#1d4ed8] font-semibold inline-flex items-center gap-1 self-start sm:self-auto"
+            className="text-xs text-[#0f172a] hover:text-[#475569] font-semibold inline-flex items-center gap-1 self-start sm:self-auto"
           >
             Manage All Actionable Items <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
@@ -355,19 +346,13 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
                     {task.task}
                   </div>
                   <div className="flex flex-wrap items-center gap-2 mt-1">
-                    <span
-                      className={`text-[10px] font-semibold px-2 py-0.2 rounded-full ${
-                        task.lane === 'TECHNICAL'
-                          ? 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]'
-                          : 'bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe]'
-                      }`}
-                    >
+                    <span className="text-[10px] font-semibold px-2 py-0.2 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                       {task.lane}
                     </span>
                     <span className="text-[11px] text-[#64748b] font-mono">Date: {task.date}</span>
                     {task.priority === 'High' && (
-                      <span className="text-[10px] font-semibold text-[#dc2626] flex items-center gap-0.5">
-                        <AlertTriangle className="w-3 h-3" /> High Priority
+                      <span className="text-[10px] font-semibold text-[#0f172a] bg-[#f1f5f9] px-1.5 py-0.2 rounded-[4px] border border-[#e2e8f0]">
+                        High Priority
                       </span>
                     )}
                   </div>
@@ -375,15 +360,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
               </div>
 
               <div className="flex items-center gap-2 self-end sm:self-center">
-                <span
-                  className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
-                    task.status === 'Completed'
-                      ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
-                      : task.status === 'Awaiting approval'
-                      ? 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]'
-                      : 'bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]'
-                  }`}
-                >
+                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
                   {task.status}
                 </span>
               </div>

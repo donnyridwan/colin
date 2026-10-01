@@ -256,17 +256,7 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
                         <span className="text-xs font-semibold text-[#0f172a] truncate">
                           {item.title}
                         </span>
-                        <span
-                          className={`text-[9px] font-semibold px-2 py-0.2 rounded-full ${
-                            item.category === 'Page'
-                              ? 'bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]'
-                              : item.category === 'Task'
-                              ? 'bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe]'
-                              : item.category === 'URL'
-                              ? 'bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]'
-                              : 'bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]'
-                          }`}
-                        >
+                        <span className="text-[9px] font-semibold px-2 py-0.2 rounded-full bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
                           {item.category}
                         </span>
                         {item.badge && (

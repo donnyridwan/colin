@@ -11,7 +11,7 @@ interface StatCardProps {
   badge?: string;
   badgeColor?: string;
   onClick?: () => void;
-  accentColor?: 'blue' | 'indigo' | 'emerald' | 'amber' | 'rose' | 'slate';
+  accentColor?: string; // Kept for backwards compatibility, rendered monochrome
 }
 
 export const StatCard: React.FC<StatCardProps> = ({
@@ -24,26 +24,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   badge,
   badgeColor = 'bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]',
   onClick,
-  accentColor = 'blue',
 }) => {
-  const getIconStyles = () => {
-    switch (accentColor) {
-      case 'emerald':
-        return 'bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7]';
-      case 'indigo':
-        return 'bg-[#f5f3ff] text-[#7c3aed] border border-[#ede9fe]';
-      case 'amber':
-        return 'bg-[#fffbeb] text-[#d97706] border border-[#fef3c7]';
-      case 'rose':
-        return 'bg-[#fff1f2] text-[#e11d48] border border-[#ffe4e6]';
-      case 'slate':
-        return 'bg-[#f8fafc] text-[#475569] border border-[#e2e8f0]';
-      case 'blue':
-      default:
-        return 'bg-[#eff6ff] text-[#2563eb] border border-[#dbeafe]';
-    }
-  };
-
   return (
     <div
       onClick={onClick}
@@ -53,7 +34,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           : ''
       }`}
     >
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1">
         <span className="text-xs font-medium text-[#64748b] tracking-tight">{label}</span>
 
         <div className="flex items-center gap-1.5">
@@ -63,18 +44,16 @@ export const StatCard: React.FC<StatCardProps> = ({
             </span>
           )}
           {Icon && (
-            <div className={`w-7 h-7 rounded-[8px] flex items-center justify-center shrink-0 transition-transform ${getIconStyles()} ${onClick ? 'group-hover:scale-105' : ''}`}>
-              <Icon className="w-3.5 h-3.5" />
-            </div>
+            <Icon className="w-4 h-4 text-[#94a3b8] transition-colors group-hover:text-[#0f172a]" />
           )}
         </div>
       </div>
 
-      <div className="text-[30px] sm:text-[32px] font-bold text-[#0f172a] tracking-tight leading-none my-2.5">
+      <div className="text-[32px] sm:text-[36px] font-bold text-[#0f172a] tracking-tight leading-none my-2.5">
         {value}
       </div>
 
-      <div className="flex items-center flex-wrap gap-2 pt-0.5">
+      <div className="flex items-center flex-wrap gap-1.5 pt-0.5">
         {change && (
           <div
             className={`inline-flex items-center text-xs font-semibold ${

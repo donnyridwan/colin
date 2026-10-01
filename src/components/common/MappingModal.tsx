@@ -184,9 +184,9 @@ export const MappingModal: React.FC<MappingModalProps> = ({
         {/* Modal Body */}
         <div className="p-5 overflow-y-auto space-y-4">
           <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0] text-xs text-[#475569] leading-relaxed flex items-start gap-2.5">
-            <Sparkles className="w-4 h-4 text-[#2563eb] shrink-0 mt-0.5" />
+            <Sparkles className="w-4 h-4 text-[#0f172a] shrink-0 mt-0.5" />
             <div>
-              <strong className="text-[#0f172a]">Prinsip Pemetaan:</strong> Semua data riil dari 6 halaman PDF telah diekstrak dan didistribusikan ke menu yang relevan. Menu yang belum memiliki data di PDF (seperti Paid Media, Social Media, Email, Brand Brief, dsb.) disiapkan sebagai <span className="text-[#0f172a] font-semibold underline decoration-[#f59e0b]">Clean Placeholder / Empty State</span> agar struktur menu siap digunakan begitu data tersedia.
+              <strong className="text-[#0f172a]">Prinsip Pemetaan:</strong> Semua data riil dari 6 halaman PDF telah diekstrak dan didistribusikan ke menu yang relevan. Menu yang belum memiliki data di PDF (seperti Paid Media, Social Media, Email, Brand Brief, dsb.) disiapkan sebagai <span className="text-[#0f172a] font-semibold underline">Clean Placeholder / Empty State</span> agar struktur menu siap digunakan begitu data tersedia.
             </div>
           </div>
 
@@ -211,13 +211,13 @@ export const MappingModal: React.FC<MappingModalProps> = ({
                       onClose();
                     }}
                   >
-                    <td className="py-3 px-3 font-semibold text-[#0f172a] group-hover:text-[#2563eb]">
+                    <td className="py-3 px-3 font-semibold text-[#0f172a]">
                       {rule.menu}
                     </td>
                     <td className="py-3 px-3 whitespace-nowrap">
                       {rule.status === 'populated' ? (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
-                          <CheckCircle2 className="w-3 h-3" /> Berisi Konten
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
+                          <CheckCircle2 className="w-3 h-3 text-[#0f172a]" /> Berisi Konten
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#64748b] border border-[#e2e8f0]">
