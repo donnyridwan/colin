@@ -46,59 +46,59 @@ export const ConnectionsPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-12">
+    <div className="space-y-5 max-w-7xl mx-auto pb-12">
       {/* Top Banner */}
-      <div className="p-5 rounded-[12px] bg-white border border-[#e2e8f0] shadow-[0px_1px_3px_rgba(0,0,0,0.04)] flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-4 rounded-[8px] bg-white border border-[#efefef] shadow-[0px_1px_2px_rgba(0,0,0,0.02)] flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div>
-          <div className="flex items-center gap-2.5">
-            <h2 className="text-base font-bold text-[#0f172a] tracking-tight">Active Integrations & APIs</h2>
-            <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
+          <div className="flex items-center gap-2">
+            <h2 className="text-sm font-bold text-[#010101] tracking-tight">Active Integrations & APIs</h2>
+            <span className="text-[10px] px-2 py-0.5 rounded-[4px] bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] font-medium">
               5/5 Active Connections
             </span>
           </div>
-          <p className="text-xs text-[#64748b] mt-1 max-w-xl leading-relaxed">
+          <p className="text-xs text-[#71717a] mt-0.5 max-w-xl">
             Live telemetry data feeds powering the automated audit scores, task generation, and client performance views.
           </p>
         </div>
 
-        <button className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors shadow-xs">
-          <RefreshCw className="w-3.5 h-3.5 text-[#64748b]" />
+        <button className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors shadow-[0px_1px_2px_rgba(0,0,0,0.02)]">
+          <RefreshCw className="w-3.5 h-3.5" />
           Sync All Data Now
         </button>
       </div>
 
       {/* 5 Connected Services */}
       <div>
-        <h3 className="text-xs font-bold text-[#0f172a] uppercase tracking-wider mb-3 flex items-center gap-2">
+        <h3 className="text-xs font-bold text-[#16a34a] uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
           <CheckCircle className="w-3.5 h-3.5" />
           Active Connected Data Sources (5)
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {activeConnections.map((item) => (
             <div
               key={item.id}
-              className="p-5 rounded-[12px] bg-white border border-[#e2e8f0] hover:border-[#cbd5e1] transition-all shadow-[0px_1px_3px_rgba(0,0,0,0.04)] flex flex-col justify-between"
+              className="p-4 rounded-[8px] bg-white border border-[#efefef] hover:border-[#d4d4d8] transition-all shadow-[0px_1px_2px_rgba(0,0,0,0.03)] flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-8 h-8 rounded-[8px] bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center">
+                <div className="flex items-center justify-between mb-2.5">
+                  <div className="w-7 h-7 rounded-[6px] bg-[#f0fdf4] text-[#16a34a] flex items-center justify-center">
                     {getIcon(item.icon)}
                   </div>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0f172a]" />
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] text-[10px] font-medium bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
                     Connected
                   </span>
                 </div>
 
-                <div className="text-sm font-bold text-[#0f172a]">{item.name}</div>
-                <div className="text-xs text-[#64748b] mt-0.5">{item.service}</div>
+                <div className="text-xs font-semibold text-[#010101]">{item.name}</div>
+                <div className="text-[11px] text-[#71717a] mt-0.5">{item.service}</div>
 
-                <div className="mt-3.5 p-2.5 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0] text-xs text-[#475569] font-mono">
+                <div className="mt-3 p-2 rounded-[6px] bg-[#fafafa] border border-[#efefef] text-[11px] text-[#3f3f46] font-mono">
                   {item.account}
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#e2e8f0] flex items-center justify-between text-xs text-[#64748b]">
+              <div className="mt-3 pt-2.5 border-t border-[#efefef] flex items-center justify-between text-[11px] text-[#71717a]">
                 <span>Last sync: {item.lastSynced}</span>
               </div>
             </div>
@@ -108,32 +108,32 @@ export const ConnectionsPage: React.FC = () => {
 
       {/* Available / Pending Integrations */}
       <div className="pt-2">
-        <h3 className="text-xs font-bold text-[#64748b] uppercase tracking-wider mb-3 flex items-center gap-2">
-          <Plus className="w-3.5 h-3.5 text-[#0f172a]" />
+        <h3 className="text-xs font-bold text-[#71717a] uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+          <Plus className="w-3.5 h-3.5 text-[#2563eb]" />
           Available & Pending Integrations ({otherConnections.length})
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {otherConnections.map((item) => (
             <div
               key={item.id}
-              className="p-5 rounded-[12px] bg-white border border-[#e2e8f0] flex flex-col justify-between shadow-[0px_1px_3px_rgba(0,0,0,0.04)]"
+              className="p-4 rounded-[8px] bg-white border border-[#efefef] flex flex-col justify-between shadow-[0px_1px_2px_rgba(0,0,0,0.02)]"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-8 h-8 rounded-[8px] bg-[#f8fafc] text-[#64748b] border border-[#e2e8f0] flex items-center justify-center">
+                <div className="flex items-center justify-between mb-2.5">
+                  <div className="w-7 h-7 rounded-[6px] bg-[#f4f4f5] text-[#52525b] flex items-center justify-center">
                     {getIcon(item.icon)}
                   </div>
-                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#64748b] border border-[#e2e8f0]">
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-[4px] bg-[#f4f4f5] text-[#71717a]">
                     {item.status === 'pending' ? 'Pending Setup' : 'Not Connected'}
                   </span>
                 </div>
 
-                <div className="text-sm font-bold text-[#0f172a]">{item.name}</div>
-                <div className="text-xs text-[#64748b] mt-0.5">{item.service}</div>
-                <div className="text-xs text-[#94a3b8] mt-2 leading-relaxed">{item.details}</div>
+                <div className="text-xs font-semibold text-[#010101]">{item.name}</div>
+                <div className="text-[11px] text-[#71717a] mt-0.5">{item.service}</div>
+                <div className="text-[11px] text-[#a1a1aa] mt-2">{item.details}</div>
               </div>
 
-              <button className="mt-4 w-full py-2 rounded-[8px] bg-white hover:bg-[#f8fafc] text-[#0f172a] text-xs font-semibold border border-[#e2e8f0] transition-colors shadow-2xs">
+              <button className="mt-3.5 w-full py-1.5 rounded-[6px] bg-white hover:bg-[#fafafa] text-[#171717] text-xs font-medium border border-[#e3e3e3] transition-colors">
                 Connect
               </button>
             </div>

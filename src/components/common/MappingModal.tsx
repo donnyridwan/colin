@@ -153,29 +153,29 @@ export const MappingModal: React.FC<MappingModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white border border-[#e2e8f0] rounded-[16px] w-full max-w-4xl max-h-[90vh] flex flex-col shadow-[0px_20px_50px_rgba(15,23,42,0.15)] overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fadeIn">
+      <div className="bg-white border border-[#efefef] rounded-[8px] w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
         {/* Modal Header */}
-        <div className="p-4 sm:p-5 border-b border-[#e2e8f0] flex items-center justify-between bg-white">
+        <div className="p-4 sm:p-5 border-b border-[#efefef] flex items-center justify-between bg-white">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-[8px] bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a]">
+            <div className="p-2 rounded-[6px] bg-[#f4f4f5] text-[#18181b]">
               <LayoutGrid className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-sm font-bold text-[#0f172a] flex items-center gap-2">
+              <h2 className="text-sm font-semibold text-[#010101] flex items-center gap-2">
                 Pemetaan Menu & Konten PDF
-                <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]">
+                <span className="text-[11px] font-medium px-2 py-0.5 rounded-[4px] bg-[#f4f4f5] text-[#52525b] border border-[#e4e4e7]">
                   16 Menu Catatan Tangan
                 </span>
               </h2>
-              <p className="text-xs text-[#64748b]">
+              <p className="text-xs text-[#8f8f8f]">
                 Analisis pembagian isi PDF 1 halaman ke menu multi-halaman
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-[8px] text-[#64748b] hover:text-[#0f172a] hover:bg-[#f1f5f9] transition-colors"
+            className="p-1.5 rounded-[6px] text-[#71717a] hover:text-[#010101] hover:bg-[#f4f4f5] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -183,16 +183,16 @@ export const MappingModal: React.FC<MappingModalProps> = ({
 
         {/* Modal Body */}
         <div className="p-5 overflow-y-auto space-y-4">
-          <div className="p-3.5 rounded-[10px] bg-[#f8fafc] border border-[#e2e8f0] text-xs text-[#475569] leading-relaxed flex items-start gap-2.5">
-            <Sparkles className="w-4 h-4 text-[#0f172a] shrink-0 mt-0.5" />
+          <div className="p-3.5 rounded-[6px] bg-[#fafafa] border border-[#efefef] text-xs text-[#52525b] leading-relaxed flex items-start gap-2.5">
+            <Sparkles className="w-4 h-4 text-[#2563eb] shrink-0 mt-0.5" />
             <div>
-              <strong className="text-[#0f172a]">Prinsip Pemetaan:</strong> Semua data riil dari 6 halaman PDF telah diekstrak dan didistribusikan ke menu yang relevan. Menu yang belum memiliki data di PDF (seperti Paid Media, Social Media, Email, Brand Brief, dsb.) disiapkan sebagai <span className="text-[#0f172a] font-semibold underline">Clean Placeholder / Empty State</span> agar struktur menu siap digunakan begitu data tersedia.
+              <strong className="text-[#171717]">Prinsip Pemetaan:</strong> Semua data riil dari 6 halaman PDF telah diekstrak dan didistribusikan ke menu yang relevan. Menu yang belum memiliki data di PDF (seperti Paid Media, Social Media, Email, Brand Brief, dsb.) disiapkan sebagai <span className="text-[#010101] font-semibold underline decoration-[#f59e0b]">Clean Placeholder / Empty State</span> agar struktur menu siap digunakan begitu data tersedia.
             </div>
           </div>
 
-          <div className="border border-[#e2e8f0] rounded-[10px] overflow-hidden">
+          <div className="border border-[#efefef] rounded-[6px] overflow-hidden">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#f8fafc] text-[#64748b] border-b border-[#e2e8f0] uppercase tracking-wider font-semibold">
+              <thead className="bg-[#fafafa] text-[#71717a] border-b border-[#efefef] uppercase tracking-wider font-semibold">
                 <tr>
                   <th className="py-2.5 px-3">Menu Tangan</th>
                   <th className="py-2.5 px-3">Status</th>
@@ -201,34 +201,34 @@ export const MappingModal: React.FC<MappingModalProps> = ({
                   <th className="py-2.5 px-3 text-right">Aksi</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#e2e8f0] text-[#0f172a]">
+              <tbody className="divide-y divide-[#efefef] text-[#27272a]">
                 {mappingRules.map((rule) => (
                   <tr
                     key={rule.id}
-                    className="hover:bg-[#f8fafc] transition-colors group cursor-pointer"
+                    className="hover:bg-[#fafafa] transition-colors group cursor-pointer"
                     onClick={() => {
                       onSelectMenu(rule.id);
                       onClose();
                     }}
                   >
-                    <td className="py-3 px-3 font-semibold text-[#0f172a]">
+                    <td className="py-3 px-3 font-semibold text-[#18181b] group-hover:text-[#2563eb]">
                       {rule.menu}
                     </td>
                     <td className="py-3 px-3 whitespace-nowrap">
                       {rule.status === 'populated' ? (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0]">
-                          <CheckCircle2 className="w-3 h-3 text-[#0f172a]" /> Berisi Konten
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] text-[10px] font-medium bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]">
+                          <CheckCircle2 className="w-3 h-3" /> Berisi Konten
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#f1f5f9] text-[#64748b] border border-[#e2e8f0]">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] text-[10px] font-medium bg-[#f4f4f5] text-[#71717a] border border-[#e4e4e7]">
                           <Clock className="w-3 h-3" /> Placeholder
                         </span>
                       )}
                     </td>
-                    <td className="py-3 px-3 font-mono text-[11px] text-[#64748b]">
+                    <td className="py-3 px-3 font-mono text-[11px] text-[#71717a]">
                       {rule.sources}
                     </td>
-                    <td className="py-3 px-3 text-[#475569] leading-normal max-w-xs">
+                    <td className="py-3 px-3 text-[#52525b] leading-normal max-w-xs">
                       {rule.description}
                     </td>
                     <td className="py-3 px-3 text-right whitespace-nowrap">
@@ -238,7 +238,7 @@ export const MappingModal: React.FC<MappingModalProps> = ({
                           onSelectMenu(rule.id);
                           onClose();
                         }}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[6px] bg-white hover:bg-[#0f172a] hover:text-white text-[#0f172a] border border-[#e2e8f0] transition-all text-[11px] font-medium"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[4px] bg-white hover:bg-[#171717] hover:text-white text-[#171717] border border-[#e3e3e3] transition-all text-[11px]"
                       >
                         Buka <ArrowRight className="w-3 h-3" />
                       </button>
@@ -251,11 +251,11 @@ export const MappingModal: React.FC<MappingModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-3.5 border-t border-[#e2e8f0] bg-white flex items-center justify-between text-xs text-[#64748b]">
+        <div className="p-3.5 border-t border-[#efefef] bg-white flex items-center justify-between text-xs text-[#71717a]">
           <span>Total: 16 Halaman Menu Terstruktur</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 rounded-[8px] bg-[#0f172a] hover:bg-[#1e293b] text-white font-medium text-xs transition-colors shadow-xs"
+            className="px-3.5 py-1.5 rounded-[6px] bg-[#171717] hover:bg-[#262626] text-white font-medium text-xs transition-colors"
           >
             Tutup
           </button>
